@@ -8,7 +8,5 @@ namespace Negocio
 {
     public class Class1
     {
-
-        //Hola!
     }
 }
