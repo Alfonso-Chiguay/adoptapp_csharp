@@ -11,9 +11,9 @@
         <TextBox x:Name="txt_password" HorizontalAlignment="Left" Height="23" Margin="294,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" FontSize="16"/>
         <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="294,106,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="294,184,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <Button Content="Iniciar sesión" HorizontalAlignment="Left" Margin="294,253,0,0" VerticalAlignment="Top" Width="86" Height="25"/>
-        <Label Content="¿Olvidaste tu contraseña?" HorizontalAlignment="Left" Margin="324,283,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF0017FF" FontStyle="Italic"/>
-        <Button Content="Regístrate" HorizontalAlignment="Left" Margin="400,253,0,0" VerticalAlignment="Top" Width="86" Height="25"/>
+        <Button x:Name="btn_login" Content="Iniciar sesión" HorizontalAlignment="Left" Margin="294,253,0,0" VerticalAlignment="Top" Width="86" Height="25"/>
+        <Label x:Name="lbl_olvidar_password" Content="¿Olvidaste tu contraseña?" HorizontalAlignment="Left" Margin="324,283,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF0017FF" FontStyle="Italic"/>
+        <Button x:Name="btn_registarse" Content="Regístrate" HorizontalAlignment="Left" Margin="400,253,0,0" VerticalAlignment="Top" Width="86" Height="25" Click="btn_registarse_Click"/>
 
     </Grid>
 </Window>

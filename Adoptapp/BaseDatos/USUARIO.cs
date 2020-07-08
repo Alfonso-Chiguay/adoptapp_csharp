@@ -21,6 +21,11 @@ namespace BaseDatos
         public string CORREO { get; set; }
         public string USE_NAME { get; set; }
         public string PASSWORD { get; set; }
+        public string REGION { get; set; }
+        public string COMUNA { get; set; }
+        public string DIRECCION { get; set; }
+        public bool TIENE_MACOTA { get; set; }
+        public System.DateTime FECHA_NACIMIENTO { get; set; }
     
         public virtual ADOPCION ADOPCION { get; set; }
         public virtual PUBLICACION PUBLICACION { get; set; }

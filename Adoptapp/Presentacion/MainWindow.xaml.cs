@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Presentacion.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace Presentacion
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_registarse_Click(object sender, RoutedEventArgs e)
+        {
+            RegistroUsuario ventana = new RegistroUsuario();
+            ventana.ShowDialog();
+
         }
     }
 }

@@ -18,20 +18,20 @@
         <TextBox x:Name="txt_email" HorizontalAlignment="Left" Height="23" Margin="13,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontFamily="Yu Gothic" FontSize="14"/>
         <Label Content="Teléfono" HorizontalAlignment="Left" Margin="261,120,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
         <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="264,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" FontFamily="Yu Gothic" FontSize="14"/>
-        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="155,289,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="23" Margin="102,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontFamily="Yu Gothic" FontSize="14"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="180,347,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <PasswordBox x:Name="txt_password" HorizontalAlignment="Left" Margin="102,377,0,0" VerticalAlignment="Top" Width="238" Height="23"/>
-        <Label Content="Confirme su contraseña" HorizontalAlignment="Left" Margin="145,405,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <PasswordBox x:Name="txt_password2" HorizontalAlignment="Left" Margin="102,436,0,0" VerticalAlignment="Top" Width="238" Height="23"/>
-        <Button x:Name="btn_registrarse" Content="Registarse" HorizontalAlignment="Left" Margin="142,474,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="235,474,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Región" HorizontalAlignment="Left" Margin="11,174,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <ComboBox x:Name="cb_region" HorizontalAlignment="Left" Margin="14,200,0,0" VerticalAlignment="Top" Width="189"/>
-        <Label Content="Comuna" HorizontalAlignment="Left" Margin="235,174,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <ComboBox x:Name="cb_comuna" HorizontalAlignment="Left" Margin="238,200,0,0" VerticalAlignment="Top" Width="189"/>
-        <CheckBox Content="Actualmente, ¿tienes mascota(s)?" HorizontalAlignment="Left" Margin="108,242,0,0" VerticalAlignment="Top" Height="17" FontFamily="Sitka Display" FontSize="16"/>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="3" Margin="15,273,0,0" Stroke="Black" VerticalAlignment="Top" Width="468" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="158,344,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="23" Margin="105,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontFamily="Yu Gothic" FontSize="14"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="183,402,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <PasswordBox x:Name="txt_password" HorizontalAlignment="Left" Margin="105,432,0,0" VerticalAlignment="Top" Width="238" Height="23"/>
+        <Label Content="Confirme su contraseña" HorizontalAlignment="Left" Margin="148,460,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <PasswordBox x:Name="txt_password2" HorizontalAlignment="Left" Margin="105,491,0,0" VerticalAlignment="Top" Width="238" Height="23"/>
+        <Button x:Name="btn_registrarse" Content="Registarse" HorizontalAlignment="Left" Margin="145,529,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="238,529,0,0" VerticalAlignment="Top" Width="75" Click="btn_cancelar_Click"/>
+        <Label Content="Región" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <ComboBox x:Name="cb_region" HorizontalAlignment="Left" Margin="13,255,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="cb_region_SelectionChanged"/>
+        <Label Content="Comuna" HorizontalAlignment="Left" Margin="234,229,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <ComboBox x:Name="cb_comuna" HorizontalAlignment="Left" Margin="237,255,0,0" VerticalAlignment="Top" Width="189"/>
+        <CheckBox Content="Actualmente, ¿tienes mascota(s)?" HorizontalAlignment="Left" Margin="107,297,0,0" VerticalAlignment="Top" Height="17" FontFamily="Sitka Display" FontSize="16"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="3" Margin="14,328,0,0" Stroke="Black" VerticalAlignment="Top" Width="468" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -41,6 +41,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <Label Content="Fecha de nacimiento" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <DatePicker x:Name="dp_fecha_nacimiento" HorizontalAlignment="Left" Margin="14,200,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
