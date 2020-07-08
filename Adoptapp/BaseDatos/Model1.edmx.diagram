@@ -16,6 +16,8 @@
         <AssociationConnector Association="adoptappModel.FK__INVENTARI__ID_RE__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="adoptappModel.FK__PUBLICACI__ID_PU__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="adoptappModel.FK__PUBLICACI__ID_PU__2F10007B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="adoptappModel.COMUNA" Width="1.5" PointX="6.5" PointY="5.5" />
+        <EntityTypeShape EntityType="adoptappModel.REGION" Width="1.5" PointX="8.5" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

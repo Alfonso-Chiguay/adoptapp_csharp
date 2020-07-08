@@ -4,13 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="adoptappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="adoptappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADOPCION">
           <Key>
             <PropertyRef Name="ID_ADOP" />
           </Key>
           <Property Name="ID_ADOP" Type="int" Nullable="false" />
           <Property Name="FECHA_ADOP" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'adoptapp.dbo.COMUNA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="NOMBRECOMUNA" />
+          </Key>
+          <Property Name="IDCOMUNA" Type="int" Nullable="false" />
+          <Property Name="NOMBRECOMUNA" Type="nvarchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="INVENTARIO_REGISTROS">
           <Key>
@@ -39,6 +48,15 @@
           <Property Name="FECHA" Type="date" Nullable="false" />
           <Property Name="FOTO" Type="image" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="NOMBRE_REGION" />
+          </Key>
+          <Property Name="IDREGION" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_REGION" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
         <EntityType Name="USUARIO">
           <Key>
             <PropertyRef Name="RUT" />
@@ -50,6 +68,11 @@
           <Property Name="CORREO" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="USE_NAME" Type="nvarchar" MaxLength="12" Nullable="false" />
           <Property Name="PASSWORD" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="REGION" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="COMUNA" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="DIRECCION" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="TIENE_MACOTA" Type="bit" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK__ADOPCION__ID_ADO__2C3393D0">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
@@ -129,6 +152,18 @@
           <EntitySet Name="MASCOTA" EntityType="Self.MASCOTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUBLICACION" EntityType="Self.PUBLICACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [COMUNA].[IDCOMUNA] AS [IDCOMUNA], 
+    [COMUNA].[NOMBRECOMUNA] AS [NOMBRECOMUNA]
+    FROM [dbo].[COMUNA] AS [COMUNA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="REGION" EntityType="Self.REGION" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [REGION].[IDREGION] AS [IDREGION], 
+    [REGION].[NOMBRE_REGION] AS [NOMBRE_REGION]
+    FROM [dbo].[REGION] AS [REGION]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__ADOPCION__ID_ADO__2C3393D0" Association="Self.FK__ADOPCION__ID_ADO__2C3393D0">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="ADOPCION" EntitySet="ADOPCION" />
@@ -154,8 +189,7 @@
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="adoptappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -216,6 +250,11 @@
           <Property Name="PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ADOPCION" Relationship="Self.FK__ADOPCION__ID_ADO__2C3393D0" FromRole="USUARIO" ToRole="ADOPCION" />
           <NavigationProperty Name="PUBLICACION" Relationship="Self.FK__PUBLICACI__ID_PU__2F10007B" FromRole="USUARIO" ToRole="PUBLICACION" />
+          <Property Name="REGION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="COMUNA" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="TIENE_MACOTA" Type="Boolean" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK__ADOPCION__ID_ADO__2C3393D0">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
@@ -319,7 +358,23 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
+          <EntitySet Name="COMUNA" EntityType="adoptappModel.COMUNA" />
+          <EntitySet Name="REGION" EntityType="adoptappModel.REGION" />
         </EntityContainer>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="NOMBRECOMUNA" />
+          </Key>
+          <Property Name="IDCOMUNA" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRECOMUNA" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="NOMBRE_REGION" />
+          </Key>
+          <Property Name="IDREGION" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_REGION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -367,6 +422,11 @@
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="adoptappModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="TIENE_MACOTA" ColumnName="TIENE_MACOTA" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
                 <ScalarProperty Name="RUT" ColumnName="RUT" />
                 <ScalarProperty Name="DV" ColumnName="DV" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
@@ -374,6 +434,22 @@
                 <ScalarProperty Name="CORREO" ColumnName="CORREO" />
                 <ScalarProperty Name="USE_NAME" ColumnName="USE_NAME" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMUNA">
+            <EntityTypeMapping TypeName="adoptappModel.COMUNA">
+              <MappingFragment StoreEntitySet="COMUNA">
+                <ScalarProperty Name="NOMBRECOMUNA" ColumnName="NOMBRECOMUNA" />
+                <ScalarProperty Name="IDCOMUNA" ColumnName="IDCOMUNA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION">
+            <EntityTypeMapping TypeName="adoptappModel.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="NOMBRE_REGION" ColumnName="NOMBRE_REGION" />
+                <ScalarProperty Name="IDREGION" ColumnName="IDREGION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
