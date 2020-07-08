@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="Adoptapp | Inicio de sesión" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="23" Margin="300,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" FontSize="16"/>
-        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="300,201,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="300,258,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
-        <Button x:Name="btn_login" Content="Iniciar sesión" HorizontalAlignment="Left" Margin="300,327,0,0" VerticalAlignment="Top" Width="86" Height="25" Click="btn_login_Click"/>
-        <Label x:Name="lbl_olvidar_password" Content="¿Olvidaste tu contraseña?" HorizontalAlignment="Left" Margin="330,357,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF0017FF" FontStyle="Italic"/>
-        <Button x:Name="btn_registarse" Content="Regístrate" HorizontalAlignment="Left" Margin="406,327,0,0" VerticalAlignment="Top" Width="86" Height="25" Click="btn_registarse_Click"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="312,10,0,0" VerticalAlignment="Top" Height="140" Width="157">
+        <Label Content="" HorizontalAlignment="Left" Margin="287,5,0,0" VerticalAlignment="Top" Height="199" Width="216">
             <Label.Background>
                 <ImageBrush ImageSource="img/LOGO.png" Stretch="Uniform"/>
             </Label.Background>
         </Label>
-        <Label Content="AdoptApp" HorizontalAlignment="Left" Margin="330,140,0,0" VerticalAlignment="Top" FontFamily="Monotype Corsiva" FontSize="30" FontWeight="Bold"/>
+        <TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="23" Margin="300,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" FontSize="16"/>
+        <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="326,205,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="350,260,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="btn_login" Content="Iniciar sesión" HorizontalAlignment="Left" Margin="300,327,0,0" VerticalAlignment="Top" Width="86" Height="25" Click="btn_login_Click" Background="#FFA83A88" Foreground="White"/>
+        <Label x:Name="lbl_olvidar_password" Content="¿Olvidaste tu contraseña?" HorizontalAlignment="Left" Margin="315,357,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF0097FF" FontStyle="Italic" FontWeight="Bold" FontSize="14" Background="{x:Null}"/>
+        <Button x:Name="btn_registarse" Content="Regístrate" HorizontalAlignment="Left" Margin="406,327,0,0" VerticalAlignment="Top" Width="86" Height="25" Click="btn_registarse_Click" Background="#FF5E3987" Foreground="White"/>
+        <Label Content="AdoptApp" HorizontalAlignment="Left" Margin="424,32,0,0" VerticalAlignment="Top" FontFamily="Monotype Corsiva" FontSize="30" FontWeight="Bold"/>
         <PasswordBox x:Name="txt_password" HorizontalAlignment="Left" Margin="300,284,0,0" VerticalAlignment="Top" Width="192" Height="23"/>
 
     </Grid>
