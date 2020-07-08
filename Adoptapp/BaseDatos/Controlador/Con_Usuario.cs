@@ -23,25 +23,17 @@ namespace BaseDatos.Controlador
             {
                 var consulta = entidades.USUARIO.Where(x => x.USE_NAME.ToLower().Equals(nombre_usuario.ToLower())).ToList();
                 return consulta.Count == 1;                    
-            }
-            
+            }            
         }
 
-        public USUARIO inicioSesion(string usuario, string contrasena)
+        public bool inicioSesion(string usuario, string contrasena)
         {
             using (adoptappEntities entidades = new adoptappEntities())
             {
-                if (entidades.USUARIO.Any(x => x.USE_NAME.ToLower().Equals(usuario.ToLower()) &&
-                                                             x.PASSWORD.Equals(contrasena)))
-                {
-                    return entidades.USUARIO.Where(x => x.USE_NAME.ToLower().Equals(usuario.ToLower()) &&
-                                                            x.PASSWORD.Equals(contrasena)).FirstOrDefault();
-                }
-                else
-                    return new USUARIO();                
-                
+                return entidades.USUARIO.Any(x => x.USE_NAME.ToLower().Equals(usuario.ToLower()) &&
+                                                             x.PASSWORD.Equals(contrasena));                
+                   
             }
-
         }
     }
 }
