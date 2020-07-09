@@ -68,8 +68,8 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="TELEFONO" Type="int" />
           <Property Name="CORREO" Type="nvarchar" MaxLength="100" />
-          <Property Name="USE_NAME" Type="nvarchar" MaxLength="12" Nullable="false" />
-          <Property Name="PASSWORD" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="USE_NAME" Type="nvarchar" MaxLength="40" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="25" />
           <Property Name="REGION" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="COMUNA" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="DIRECCION" Type="nvarchar" MaxLength="60" Nullable="false" />
@@ -248,8 +248,8 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TELEFONO" Type="Int32" />
           <Property Name="CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="USE_NAME" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USE_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ADOPCION" Relationship="Self.FK__ADOPCION__ID_ADO__2C3393D0" FromRole="USUARIO" ToRole="ADOPCION" />
           <NavigationProperty Name="PUBLICACION" Relationship="Self.FK__PUBLICACI__ID_PU__2F10007B" FromRole="USUARIO" ToRole="PUBLICACION" />
           <Property Name="REGION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />

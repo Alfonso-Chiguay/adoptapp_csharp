@@ -92,9 +92,10 @@ namespace Presentacion.Vistas
             }
             else
                 nuevo_usuario.DIRECCION = txt_direccion.Text;
-                
 
-            nuevo_usuario.TIENE_MACOTA = chk_tiene_mascota.IsChecked.Value;
+            if (chk_tiene_mascota.IsChecked == true)
+                nuevo_usuario.TIENE_MACOTA = true;
+            else nuevo_usuario.TIENE_MACOTA = false;
             nuevo_usuario.USE_NAME = txt_usuario.Text;
             if (txt_password.Password.Equals(txt_password2.Password))
                 nuevo_usuario.PASSWORD = txt_password.Password;
