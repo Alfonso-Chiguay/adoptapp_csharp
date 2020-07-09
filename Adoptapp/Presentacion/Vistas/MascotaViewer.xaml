@@ -1,0 +1,27 @@
+﻿<Window x:Class="Presentacion.Vistas.MascotaViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion.Vistas"
+        mc:Ignorable="d"
+        Title="MascotaViewer" Height="450" Width="800">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="199" Margin="79,79,0,0" VerticalAlignment="Top" Width="251" Source="118384943-cute-orange-tabby-cat-sitting-up-tall-on-white-background.jpg"/>
+        <Image HorizontalAlignment="Left" Height="73" Margin="82,304,0,0" VerticalAlignment="Top" Width="53" Source="61a03058fd104c10ec2a0b8e1ef33577.jpg" RenderTransformOrigin="0.849,0.942"/>
+        <Label Content="Nombre de la mascota" HorizontalAlignment="Left" Margin="353,90,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tipo:" HorizontalAlignment="Left" Margin="356,129,0,0" VerticalAlignment="Top"/>
+        <Label Content="Comuna" HorizontalAlignment="Left" Margin="357,163,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha publicacion" HorizontalAlignment="Left" Margin="358,198,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nombre contacto" HorizontalAlignment="Left" Margin="358,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="Descripcion" HorizontalAlignment="Left" Margin="362,269,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="82" Margin="449,274,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="255"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="497,236,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="498,202,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="497,163,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="491,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="497,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="682,32,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
