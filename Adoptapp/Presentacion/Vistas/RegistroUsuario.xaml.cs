@@ -110,6 +110,7 @@ namespace Presentacion.Vistas
                 int resultado = validar.validarNuevoUsuario(nuevo_usuario);
                 if (resultado == 1)
                 {
+
                     Con_Usuario crear = new Con_Usuario();
                     crear.registrarUsuario(nuevo_usuario);
                     MessageBox.Show("Usuario registrado con exito!", "Usuario creado", MessageBoxButton.OK, MessageBoxImage.Information);

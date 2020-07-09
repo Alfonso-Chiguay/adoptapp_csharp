@@ -46,7 +46,7 @@ namespace Negocio
             Con_Usuario ctrluser = new Con_Usuario();
             if (usuario.NOMBRE.Equals("") || usuario.NOMBRE.Length < 2)
                 return 0;
-            else if (!rutValido(usuario.RUT.ToString(), usuario.DV))
+            else if (!rutValido(usuario.RUT.ToString()+"-"+usuario.DV))
                 return -1;
             else if (!emailValido(usuario.CORREO))
                 return -2;
