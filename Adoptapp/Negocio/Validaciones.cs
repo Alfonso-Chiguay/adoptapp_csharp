@@ -12,26 +12,32 @@ namespace Negocio
     {
         public bool rutValido(string rut, string dv)
         {
-            int rut_numeros;
 
 
-            if (rut.Length < 7 || rut.Length > 8)
+            bool validacion = false;
+            try
             {
-                return false;
+                rut = rut.ToUpper();
+                rut = rut.Replace(".", "");
+                rut = rut.Replace("-", "");
+                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
+
+                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
+
+                int m = 0, s = 1;
+                for (; rutAux != 0; rutAux /= 10)
+                {
+                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+                }
+                if (dv == (char)(s != 0 ? s + 47 : 75))
+                {
+                    validacion = true;
+                }
             }
-            else if (dv.Length != 1)
+            catch (Exception)
             {
-                return false;
             }
-            else if (!Int32.TryParse(rut, out rut_numeros))
-            {
-                return false;
-            }
-            else if (dv.ToLower() != "k" && !Int32.TryParse(dv, out rut_numeros))
-            {
-                return false;
-            }
-            else return true;
+            return validacion;
 
         }
 
