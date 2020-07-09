@@ -17,9 +17,12 @@ namespace BaseDatos
         public int ID_PUB { get; set; }
         public System.DateTime FECHA { get; set; }
         public byte[] FOTO { get; set; }
+        public string DESCRIPCION { get; set; }
+        public int U_RUT { get; set; }
     
         public virtual INVENTARIO_REGISTROS INVENTARIO_REGISTROS { get; set; }
         public virtual MASCOTA MASCOTA { get; set; }
         public virtual USUARIO USUARIO { get; set; }
+        public virtual USUARIO USUARIO1 { get; set; }
     }
 }

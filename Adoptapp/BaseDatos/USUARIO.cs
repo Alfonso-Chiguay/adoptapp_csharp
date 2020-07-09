@@ -14,6 +14,12 @@ namespace BaseDatos
     
     public partial class USUARIO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public USUARIO()
+        {
+            this.PUBLICACION1 = new HashSet<PUBLICACION>();
+        }
+    
         public int RUT { get; set; }
         public string DV { get; set; }
         public string NOMBRE { get; set; }
@@ -29,5 +35,7 @@ namespace BaseDatos
     
         public virtual ADOPCION ADOPCION { get; set; }
         public virtual PUBLICACION PUBLICACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PUBLICACION> PUBLICACION1 { get; set; }
     }
 }
