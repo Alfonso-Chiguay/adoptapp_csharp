@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="Home" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Mi cuenta" HorizontalAlignment="Left" Margin="114,47,0,0" VerticalAlignment="Top"/>
+        <Button Content="Detalle Usuario" HorizontalAlignment="Left" Margin="486,52,0,0" VerticalAlignment="Top" Width="92"/>
+        <Button Content="Favoritos" HorizontalAlignment="Left" Margin="584,52,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Mis publicaciones" HorizontalAlignment="Left" Margin="664,53,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.573,0.55"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="115,89,0,0" VerticalAlignment="Top"/>
+        <Label Content="Correo" HorizontalAlignment="Left" Margin="116,125,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="73,162,0,0" VerticalAlignment="Top"/>
+        <Label Content="Direccion" HorizontalAlignment="Left" Margin="119,189,0,0" VerticalAlignment="Top"/>
+        <Label Content="Comuna" HorizontalAlignment="Left" Margin="117,234,0,0" VerticalAlignment="Top"/>
+        <Label Content="Publicaciones" HorizontalAlignment="Left" Margin="126,286,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adopciones" HorizontalAlignment="Left" Margin="116,325,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="196,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="198,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtFechaNacimiento" HorizontalAlignment="Left" Height="23" Margin="197,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="201,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtComuna" HorizontalAlignment="Left" Height="23" Margin="191,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPublicaciones" HorizontalAlignment="Left" Height="23" Margin="197,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtAdopciones" HorizontalAlignment="Left" Height="23" Margin="202,321,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>

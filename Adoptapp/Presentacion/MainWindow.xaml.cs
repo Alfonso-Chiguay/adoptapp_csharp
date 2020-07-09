@@ -41,8 +41,13 @@ namespace Presentacion
             if (!user.inicioSesion(txt_usuario.Text, txt_password.Password))
                 MessageBox.Show("Datos incorrectos", "Acceso denegado", MessageBoxButton.OK, MessageBoxImage.Error);
             else
+            {
                 MessageBox.Show("Datos correctos", "Acceso correcto", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                Home home = new Home(txt_usuario.Text);
+                this.Close();
+                
+                home.ShowDialog();
+            }
         }
 
         private void lbl_olvidar_password_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

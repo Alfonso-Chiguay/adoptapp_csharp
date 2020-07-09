@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BaseDatos;
+using BaseDatos.Controlador;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,20 @@ namespace Presentacion.Vistas
     /// </summary>
     public partial class Home : Window
     {
-        public Home()
+        USUARIO usuario;
+        public Home(string userName)
         {
+            usuario = new USUARIO();
             InitializeComponent();
+            Con_Usuario userDao = new Con_Usuario();
+            usuario = userDao.getByUserName(userName);
+            txtNombre.Text = usuario.NOMBRE;
+            txtPublicaciones.Text = "2";
+            txtFechaNacimiento.Text = usuario.FECHA_NACIMIENTO.ToString();
+            txtDireccion.Text = usuario.DIRECCION;
+            txtCorreo.Text = usuario.CORREO;
+            txtComuna.Text = usuario.COMUNA;
+            txtAdopciones.Text = "3";
         }
     }
 }
