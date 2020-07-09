@@ -19,6 +19,7 @@ namespace BaseDatos
         public byte[] FOTO { get; set; }
         public string DESCRIPCION { get; set; }
         public int U_RUT { get; set; }
+        public string FOTO_URI { get; set; }
     
         public virtual INVENTARIO_REGISTROS INVENTARIO_REGISTROS { get; set; }
         public virtual MASCOTA MASCOTA { get; set; }

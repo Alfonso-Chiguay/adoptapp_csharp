@@ -8,6 +8,10 @@
         Title="AnunciosGuardados" Height="450" Width="800">
     <Grid>
         <Label Content="Anuncios guardados" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30"/>
-        <Frame Content="" HorizontalAlignment="Left" Height="260" Margin="27,103,0,0" VerticalAlignment="Top" Width="651" BorderBrush="#FF670A7C" BorderThickness="2"/>
+        <Frame Content="" HorizontalAlignment="Left" Height="291" Margin="10,65,0,0" VerticalAlignment="Top" Width="772" BorderBrush="#FF670A7C" BorderThickness="2"/>
+        <ListBox x:Name="lbox_lista" HorizontalAlignment="Left" Height="286" Margin="13,68,0,0" VerticalAlignment="Top" Width="767" FontSize="25"/>
+        <Button Content="Detalle Usuario" HorizontalAlignment="Left" Margin="488,27,0,0" VerticalAlignment="Top" Width="92" Background="#FFAD266F" Foreground="White"/>
+        <Button Content="Favoritos" HorizontalAlignment="Left" Margin="585,27,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF5A3987"/>
+        <Button Content="Mis publicaciones" HorizontalAlignment="Left" Margin="665,27,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.573,0.55" Foreground="#FFF8F8FA" Background="#FF313B8F"/>
     </Grid>
 </Window>

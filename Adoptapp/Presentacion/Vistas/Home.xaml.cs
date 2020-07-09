@@ -36,5 +36,11 @@ namespace Presentacion.Vistas
             txtComuna.Text = usuario.COMUNA;
             txtAdopciones.Text = "3";
         }
+
+        private void btn_crear_publicacion_Click(object sender, RoutedEventArgs e)
+        {
+            CrearPublicacion ventana = new CrearPublicacion(usuario);
+            ventana.ShowDialog();
+        }
     }
 }

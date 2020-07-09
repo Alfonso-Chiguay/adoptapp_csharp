@@ -68,6 +68,9 @@
     <Compile Include="Vistas\AnunciosGuardados.xaml.cs">
       <DependentUpon>AnunciosGuardados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\CrearPublicacion.xaml.cs">
+      <DependentUpon>CrearPublicacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Vistas\AnunciosGuardados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\CrearPublicacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -50,6 +50,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.COMUNA' no tiene definida ningu
           <Property Name="FOTO" Type="image" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" />
           <Property Name="U_RUT" Type="int" Nullable="false" />
+          <Property Name="FOTO_URI" Type="nvarchar(max)" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -261,6 +262,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="U_RUT" Type="Int32" Nullable="false" />
           <NavigationProperty Name="USUARIO1" Relationship="adoptappModel.FK_U_RUT" FromRole="PUBLICACION" ToRole="USUARIO" />
+          <Property Name="FOTO_URI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -457,6 +459,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <EntitySetMapping Name="PUBLICACION">
             <EntityTypeMapping TypeName="adoptappModel.PUBLICACION">
               <MappingFragment StoreEntitySet="PUBLICACION">
+                <ScalarProperty Name="FOTO_URI" ColumnName="FOTO_URI" />
                 <ScalarProperty Name="U_RUT" ColumnName="U_RUT" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="ID_PUB" ColumnName="ID_PUB" />

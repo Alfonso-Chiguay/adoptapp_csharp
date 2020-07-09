@@ -1,0 +1,32 @@
+﻿<Window x:Class="Presentacion.Vistas.CrearPublicacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentacion.Vistas"
+        mc:Ignorable="d"
+        Title="Adoptapp | Crear publicacion" Height="710.465" Width="701.163" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Crear publicación" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="30"/>
+        <Label Content="Nombre mascota" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <TextBox x:Name="txt_mascota" HorizontalAlignment="Left" Height="23" Margin="132,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171"/>
+        <Label Content="Tipo de mascota" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <ComboBox x:Name="cb_mascota" HorizontalAlignment="Left" Margin="132,121,0,0" VerticalAlignment="Top" Width="171"/>
+        <Label Content="Publicador" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <Label x:Name="lbl_publicador" Content="" HorizontalAlignment="Left" Margin="132,153,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Width="313"/>
+        <Label Content="Contacto" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <Label x:Name="lbl_telefono" Content="" HorizontalAlignment="Left" Margin="132,188,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Width="313"/>
+        <Label Content="Descripcion" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <TextBox x:Name="txt_descripcion" HorizontalAlignment="Left" Height="100" Margin="132,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="478,51,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Height="152" Width="189">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Presentacion;component/img/LOGO.png"/>
+            </Label.Background>
+        </Label>
+        <Label Content="Subir una foto" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16"/>
+        <Button x:Name="btn_seleccionar" Content="Seleccionar" HorizontalAlignment="Left" Margin="132,359,0,0" VerticalAlignment="Top" Width="75" Click="btn_seleccionar_Click" Background="#FFA92770" Foreground="White"/>
+        <Label x:Name="lbl_ruta" Content="" HorizontalAlignment="Left" Margin="212,355,0,0" VerticalAlignment="Top" Width="389" Height="26"/>
+        <Image x:Name="img_subida" HorizontalAlignment="Left" Height="176" Margin="132,386,0,0" VerticalAlignment="Top" Width="200"/>
+
+    </Grid>
+</Window>
