@@ -16,6 +16,7 @@
 advertencia 6002: La tabla o vista 'adoptapp.dbo.COMUNA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="COMUNA">
           <Key>
+            
             <PropertyRef Name="NOMBRECOMUNA" />
           </Key>
           <Property Name="IDCOMUNA" Type="int" Nullable="false" />
@@ -52,6 +53,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.COMUNA' no tiene definida ningu
 advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="REGION">
           <Key>
+            
             <PropertyRef Name="NOMBRE_REGION" />
           </Key>
           <Property Name="IDREGION" Type="int" Nullable="false" />
@@ -65,7 +67,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="DV" Type="nvarchar" MaxLength="1" Nullable="false" />
           <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="TELEFONO" Type="int" />
-          <Property Name="CORREO" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CORREO" Type="nvarchar" MaxLength="100" />
           <Property Name="USE_NAME" Type="nvarchar" MaxLength="12" Nullable="false" />
           <Property Name="PASSWORD" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="REGION" Type="nvarchar" MaxLength="60" Nullable="false" />
@@ -245,7 +247,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="DV" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TELEFONO" Type="Int32" />
-          <Property Name="CORREO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="USE_NAME" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ADOPCION" Relationship="Self.FK__ADOPCION__ID_ADO__2C3393D0" FromRole="USUARIO" ToRole="ADOPCION" />
