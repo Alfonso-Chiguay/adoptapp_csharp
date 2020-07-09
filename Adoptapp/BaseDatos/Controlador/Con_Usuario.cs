@@ -51,5 +51,13 @@ namespace BaseDatos.Controlador
                 return entidades.USUARIO.Where(x => x.CORREO.ToLower().Equals(email.ToLower())).FirstOrDefault();
             }
         }
+
+        public USUARIO getByUserName(string username)
+        {
+            using (adoptappEntities entidades = new adoptappEntities())
+            {
+                return entidades.USUARIO.Where(x => x.USE_NAME.ToLower().Equals(username.ToLower())).FirstOrDefault();
+            }
+        }
     }
 }
