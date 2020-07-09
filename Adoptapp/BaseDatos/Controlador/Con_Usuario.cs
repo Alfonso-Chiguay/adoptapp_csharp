@@ -32,7 +32,6 @@ namespace BaseDatos.Controlador
             {
                 return entidades.USUARIO.Any(x => x.USE_NAME.ToLower().Equals(usuario.ToLower()) &&
                                                              x.PASSWORD.Equals(contrasena));
-
             }
         }
 
