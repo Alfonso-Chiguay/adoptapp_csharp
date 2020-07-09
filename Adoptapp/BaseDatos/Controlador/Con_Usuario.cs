@@ -22,8 +22,8 @@ namespace BaseDatos.Controlador
             using (adoptappEntities entidades = new adoptappEntities())
             {
                 var consulta = entidades.USUARIO.Where(x => x.USE_NAME.ToLower().Equals(nombre_usuario.ToLower())).ToList();
-                return consulta.Count == 1;                    
-            }            
+                return consulta.Count == 1;
+            }
         }
 
         public bool inicioSesion(string usuario, string contrasena)
@@ -31,9 +31,18 @@ namespace BaseDatos.Controlador
             using (adoptappEntities entidades = new adoptappEntities())
             {
                 return entidades.USUARIO.Any(x => x.USE_NAME.ToLower().Equals(usuario.ToLower()) &&
-                                                             x.PASSWORD.Equals(contrasena));                
-                   
+                                                             x.PASSWORD.Equals(contrasena));
+
             }
         }
-    }
+
+        public USUARIO GetUSUARIO(string username)
+        {
+            using (adoptappEntities entidades = new adoptappEntities())
+            {
+                var consulta = entidades.USUARIO.Where(x => x.USE_NAME == username).FirstOrDefault();
+                return consulta;
+
+            }
+        } }
 }

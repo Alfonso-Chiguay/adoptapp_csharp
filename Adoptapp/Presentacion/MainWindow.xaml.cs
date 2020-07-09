@@ -42,7 +42,10 @@ namespace Presentacion
                 MessageBox.Show("Datos incorrectos", "Acceso denegado", MessageBoxButton.OK, MessageBoxImage.Error);
             else
                 MessageBox.Show("Datos correctos", "Acceso correcto", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            Home home = new Home(txt_usuario.Text);
+            this.Close();
+            home.ShowDialog();
+            
         }
     }
 }
