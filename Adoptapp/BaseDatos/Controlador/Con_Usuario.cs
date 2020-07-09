@@ -35,5 +35,21 @@ namespace BaseDatos.Controlador
                    
             }
         }
+
+        public bool existeCorreo(string email)
+        {
+            using (adoptappEntities entidades = new adoptappEntities())
+            {
+                return entidades.USUARIO.Any(x => x.CORREO.ToLower().Equals(email.ToLower()));
+            }
+        }
+
+        public USUARIO datosPorCorreo(string email)
+        {
+            using (adoptappEntities entidades = new adoptappEntities())
+            {
+                return entidades.USUARIO.Where(x => x.CORREO.ToLower().Equals(email.ToLower())).FirstOrDefault();
+            }
+        }
     }
 }

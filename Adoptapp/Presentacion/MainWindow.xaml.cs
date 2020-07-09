@@ -44,5 +44,11 @@ namespace Presentacion
                 MessageBox.Show("Datos correctos", "Acceso correcto", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
+
+        private void lbl_olvidar_password_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RecuperarPassword ventana = new RecuperarPassword();
+            ventana.ShowDialog();
+        }
     }
 }
