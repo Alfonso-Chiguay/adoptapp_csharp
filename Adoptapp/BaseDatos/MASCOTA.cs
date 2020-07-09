@@ -14,6 +14,12 @@ namespace BaseDatos
     
     public partial class MASCOTA
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MASCOTA()
+        {
+            this.PUBLICACION1 = new HashSet<PUBLICACION>();
+        }
+    
         public int ID_MAS { get; set; }
         public string RAZA { get; set; }
         public Nullable<int> EDAD { get; set; }
@@ -22,6 +28,7 @@ namespace BaseDatos
         public double TAMAÑO { get; set; }
     
         public virtual ADOPCION ADOPCION { get; set; }
-        public virtual PUBLICACION PUBLICACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PUBLICACION> PUBLICACION1 { get; set; }
     }
 }

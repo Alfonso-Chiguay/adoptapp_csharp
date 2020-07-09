@@ -39,7 +39,7 @@ namespace Presentacion.Vistas
 
         private void btn_crear_publicacion_Click(object sender, RoutedEventArgs e)
         {
-            CrearPublicacion ventana = new CrearPublicacion(usuario);
+            CrearPublicacion ventana = new CrearPublicacion(usuario.USE_NAME);
             ventana.ShowDialog();
         }
     }

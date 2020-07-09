@@ -10,7 +10,23 @@ namespace BaseDatos.Controlador
     {
         public void crearPublicacion(PUBLICACION pub)
         {
-            
+            using(adoptappEntities entidades = new adoptappEntities())
+            {
+                entidades.PUBLICACION.Add(pub);
+                entidades.SaveChanges();
+            }
+        }
+
+        public int siguienteId()
+        {
+            using (adoptappEntities entidades = new adoptappEntities())
+            {
+                var consulta = entidades.PUBLICACION.ToList();
+                if (consulta.Count == 0)
+                    return 0;
+                else
+                    return consulta.Count;
+            }
         }
     }
 }

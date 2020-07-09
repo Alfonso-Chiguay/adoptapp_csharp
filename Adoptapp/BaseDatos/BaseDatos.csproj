@@ -61,6 +61,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controlador\Con_Comuna.cs" />
+    <Compile Include="Controlador\Con_Mascota.cs" />
     <Compile Include="Controlador\Con_Publicacion.cs" />
     <Compile Include="Controlador\Con_Region.cs" />
     <Compile Include="Controlador\Con_Usuario.cs" />

@@ -51,6 +51,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.COMUNA' no tiene definida ningu
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" />
           <Property Name="U_RUT" Type="int" Nullable="false" />
           <Property Name="FOTO_URI" Type="nvarchar(max)" />
+          <Property Name="ID_MASCOTA" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -151,6 +152,20 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ID_MASC">
+          <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MASCOTA">
+              <PropertyRef Name="ID_MAS" />
+            </Principal>
+            <Dependent Role="PUBLICACION">
+              <PropertyRef Name="ID_MASCOTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_U_RUT">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -207,6 +222,10 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
+          <AssociationSet Name="FK_ID_MASC" Association="Self.FK_ID_MASC">
+            <End Role="MASCOTA" EntitySet="MASCOTA" />
+            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
+          </AssociationSet>
           <AssociationSet Name="FK_U_RUT" Association="Self.FK_U_RUT">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
@@ -247,7 +266,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="NOMBRE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TAMAÑO" Type="Double" Nullable="false" />
           <NavigationProperty Name="ADOPCION" Relationship="Self.FK__ADOPCION__ID_ADO__2D27B809" FromRole="MASCOTA" ToRole="ADOPCION" />
-          <NavigationProperty Name="PUBLICACION" Relationship="Self.FK__PUBLICACI__ID_PU__2E1BDC42" FromRole="MASCOTA" ToRole="PUBLICACION" />
+          <NavigationProperty Name="PUBLICACION1" Relationship="adoptappModel.FK_ID_MASC" FromRole="MASCOTA" ToRole="PUBLICACION" />
         </EntityType>
         <EntityType Name="PUBLICACION">
           <Key>
@@ -257,12 +276,12 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="INVENTARIO_REGISTROS" Relationship="Self.FK__INVENTARI__ID_RE__300424B4" FromRole="PUBLICACION" ToRole="INVENTARIO_REGISTROS" />
-          <NavigationProperty Name="MASCOTA" Relationship="Self.FK__PUBLICACI__ID_PU__2E1BDC42" FromRole="PUBLICACION" ToRole="MASCOTA" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__PUBLICACI__ID_PU__2F10007B" FromRole="PUBLICACION" ToRole="USUARIO" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="U_RUT" Type="Int32" Nullable="false" />
           <NavigationProperty Name="USUARIO1" Relationship="adoptappModel.FK_U_RUT" FromRole="PUBLICACION" ToRole="USUARIO" />
           <Property Name="FOTO_URI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_MASCOTA" Type="Int32" />
+          <NavigationProperty Name="MASCOTA1" Relationship="adoptappModel.FK_ID_MASC" FromRole="PUBLICACION" ToRole="MASCOTA" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -276,7 +295,6 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <Property Name="USE_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="PASSWORD" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ADOPCION" Relationship="Self.FK__ADOPCION__ID_ADO__2C3393D0" FromRole="USUARIO" ToRole="ADOPCION" />
-          <NavigationProperty Name="PUBLICACION" Relationship="Self.FK__PUBLICACI__ID_PU__2F10007B" FromRole="USUARIO" ToRole="PUBLICACION" />
           <Property Name="REGION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="COMUNA" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
@@ -392,6 +410,10 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
+          <AssociationSet Name="FK_ID_MASC" Association="adoptappModel.FK_ID_MASC">
+            <End Role="MASCOTA" EntitySet="MASCOTA" />
+            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="COMUNA">
           <Key>
@@ -418,6 +440,20 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
             </Principal>
             <Dependent Role="PUBLICACION">
               <PropertyRef Name="U_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_MASC">
+          <End Type="adoptappModel.MASCOTA" Role="MASCOTA" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adoptappModel.PUBLICACION" Role="PUBLICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MASCOTA">
+              <PropertyRef Name="ID_MAS" />
+            </Principal>
+            <Dependent Role="PUBLICACION">
+              <PropertyRef Name="ID_MASCOTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -459,6 +495,7 @@ advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ningu
           <EntitySetMapping Name="PUBLICACION">
             <EntityTypeMapping TypeName="adoptappModel.PUBLICACION">
               <MappingFragment StoreEntitySet="PUBLICACION">
+                <ScalarProperty Name="ID_MASCOTA" ColumnName="ID_MASCOTA" />
                 <ScalarProperty Name="FOTO_URI" ColumnName="FOTO_URI" />
                 <ScalarProperty Name="U_RUT" ColumnName="U_RUT" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />

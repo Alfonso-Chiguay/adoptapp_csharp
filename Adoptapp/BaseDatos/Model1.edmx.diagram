@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="43e9dfafe20e469ea00b601343181ed2" Name="Diagram1">
-        <EntityTypeShape EntityType="adoptappModel.ADOPCION" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="adoptappModel.ADOPCION" Width="1.5" PointX="3.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="adoptappModel.INVENTARIO_REGISTROS" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="adoptappModel.MASCOTA" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="adoptappModel.PUBLICACION" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
@@ -19,6 +19,7 @@
         <EntityTypeShape EntityType="adoptappModel.COMUNA" Width="1.5" PointX="6.5" PointY="5.5" />
         <EntityTypeShape EntityType="adoptappModel.REGION" Width="1.5" PointX="8.5" PointY="0.5" />
         <AssociationConnector Association="adoptappModel.FK_U_RUT" />
+        <AssociationConnector Association="adoptappModel.FK_ID_MASC" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

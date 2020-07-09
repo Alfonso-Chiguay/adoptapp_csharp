@@ -34,7 +34,6 @@ namespace BaseDatos
         public System.DateTime FECHA_NACIMIENTO { get; set; }
     
         public virtual ADOPCION ADOPCION { get; set; }
-        public virtual PUBLICACION PUBLICACION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PUBLICACION> PUBLICACION1 { get; set; }
     }
