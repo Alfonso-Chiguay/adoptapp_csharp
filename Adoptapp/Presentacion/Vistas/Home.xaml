@@ -5,26 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion.Vistas"
         mc:Ignorable="d"
-        Title="Home" Height="450" Width="800">
+        Title="Adoptapp | Home" Height="356" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Mi cuenta" HorizontalAlignment="Left" Margin="114,47,0,0" VerticalAlignment="Top"/>
-        <Button Content="Detalle Usuario" HorizontalAlignment="Left" Margin="486,52,0,0" VerticalAlignment="Top" Width="92"/>
-        <Button Content="Favoritos" HorizontalAlignment="Left" Margin="584,52,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Mis publicaciones" HorizontalAlignment="Left" Margin="664,53,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.573,0.55"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="115,89,0,0" VerticalAlignment="Top"/>
-        <Label Content="Correo" HorizontalAlignment="Left" Margin="116,125,0,0" VerticalAlignment="Top"/>
-        <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="73,162,0,0" VerticalAlignment="Top"/>
-        <Label Content="Direccion" HorizontalAlignment="Left" Margin="119,189,0,0" VerticalAlignment="Top"/>
-        <Label Content="Comuna" HorizontalAlignment="Left" Margin="117,234,0,0" VerticalAlignment="Top"/>
-        <Label Content="Publicaciones" HorizontalAlignment="Left" Margin="126,286,0,0" VerticalAlignment="Top"/>
-        <Label Content="Adopciones" HorizontalAlignment="Left" Margin="116,325,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="196,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="198,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtFechaNacimiento" HorizontalAlignment="Left" Height="23" Margin="197,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="201,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtComuna" HorizontalAlignment="Left" Height="23" Margin="191,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPublicaciones" HorizontalAlignment="Left" Height="23" Margin="197,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtAdopciones" HorizontalAlignment="Left" Height="23" Margin="202,321,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Mi cuenta" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Sitka Heading" Foreground="#FF8B337B"/>
+        <Button Content="Detalle Usuario" HorizontalAlignment="Left" Margin="488,27,0,0" VerticalAlignment="Top" Width="92" Background="#FFAD266F" Foreground="White"/>
+        <Button Content="Favoritos" HorizontalAlignment="Left" Margin="585,27,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF5A3987"/>
+        <Button Content="Mis publicaciones" HorizontalAlignment="Left" Margin="665,27,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.573,0.55" Foreground="#FFF8F8FA" Background="#FF313B8F"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="161,93,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Correo" HorizontalAlignment="Left" Margin="169,122,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="104,152,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Direccion" HorizontalAlignment="Left" Margin="155,181,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Comuna" HorizontalAlignment="Left" Margin="161,211,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Publicaciones" HorizontalAlignment="Left" Margin="128,239,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" RenderTransformOrigin="0.572,0.533" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Adopciones" HorizontalAlignment="Left" Margin="140,267,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="220,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="220,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
+        <TextBox x:Name="txtFechaNacimiento" HorizontalAlignment="Left" Height="23" Margin="220,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="220,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
+        <TextBox x:Name="txtComuna" HorizontalAlignment="Left" Height="23" Margin="220,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
+        <TextBox x:Name="txtPublicaciones" HorizontalAlignment="Left" Height="23" Margin="220,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
+        <TextBox x:Name="txtAdopciones" HorizontalAlignment="Left" Height="23" Margin="220,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="484,96,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Sitka Heading" Height="202" Width="251">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Presentacion;component/img/LOGO.png"/>
+            </Label.Background>
+        </Label>
 
     </Grid>
 </Window>

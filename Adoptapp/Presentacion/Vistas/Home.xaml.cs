@@ -30,7 +30,7 @@ namespace Presentacion.Vistas
             usuario = userDao.getByUserName(userName);
             txtNombre.Text = usuario.NOMBRE;
             txtPublicaciones.Text = "2";
-            txtFechaNacimiento.Text = usuario.FECHA_NACIMIENTO.ToString();
+            txtFechaNacimiento.Text = usuario.FECHA_NACIMIENTO.ToShortDateString();
             txtDireccion.Text = usuario.DIRECCION;
             txtCorreo.Text = usuario.CORREO;
             txtComuna.Text = usuario.COMUNA;
