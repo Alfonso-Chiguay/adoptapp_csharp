@@ -10,7 +10,7 @@ namespace Negocio
 {
     public class Validaciones
     {
-        public bool rutValido(string rut, string dv)
+        public bool rutValido(string rut)
         {
 
 
