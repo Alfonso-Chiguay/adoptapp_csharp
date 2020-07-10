@@ -65,6 +65,9 @@
     <Compile Include="Controlador\Con_Publicacion.cs" />
     <Compile Include="Controlador\Con_Region.cs" />
     <Compile Include="Controlador\Con_Usuario.cs" />
+    <Compile Include="FAVORITO.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="MASCOTA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

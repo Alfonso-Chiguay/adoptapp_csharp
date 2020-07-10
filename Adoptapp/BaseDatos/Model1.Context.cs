@@ -31,5 +31,6 @@ namespace BaseDatos
         public virtual DbSet<PUBLICACION> PUBLICACION { get; set; }
         public virtual DbSet<REGION> REGION { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<FAVORITO> FAVORITO { get; set; }
     }
 }

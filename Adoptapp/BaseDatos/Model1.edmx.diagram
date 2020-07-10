@@ -15,6 +15,8 @@
         <AssociationConnector Association="adoptappModel.PUBLICACION_FK2" ManuallyRouted="false" />
         <AssociationConnector Association="adoptappModel.USUARIO_FK1" ManuallyRouted="false" />
         <AssociationConnector Association="adoptappModel.PUBLICACION_FK1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="adoptappModel.FAVORITO" Width="1.5" PointX="5.25" PointY="4.875" />
+        <AssociationConnector Association="adoptappModel.FK_FAV_IDPUB" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

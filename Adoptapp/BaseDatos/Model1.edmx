@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="adoptappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="adoptappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADOPCION">
           <Key>
             <PropertyRef Name="ADO_ID_ADOPCION" />
@@ -19,6 +19,14 @@
           </Key>
           <Property Name="COM_ID_COMUNA" Type="int" Nullable="false" />
           <Property Name="COM_NOMBRE_COMUNA" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAVORITO">
+          <Key>
+            <PropertyRef Name="FAV_ID_FAVORITO" />
+          </Key>
+          <Property Name="USU_RUT" Type="int" Nullable="false" />
+          <Property Name="PUB_ID_PUBLICACION" Type="int" Nullable="false" />
+          <Property Name="FAV_ID_FAVORITO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MASCOTA">
           <Key>
@@ -80,6 +88,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FAV_IDPUB">
+          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FAVORITO" Type="Self.FAVORITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PUBLICACION">
+              <PropertyRef Name="PUB_ID_PUBLICACION" />
+            </Principal>
+            <Dependent Role="FAVORITO">
+              <PropertyRef Name="PUB_ID_PUBLICACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="PUBLICACION_FK1">
           <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="1" />
           <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="*" />
@@ -119,6 +141,7 @@
         <EntityContainer Name="adoptappModelStoreContainer">
           <EntitySet Name="ADOPCION" EntityType="Self.ADOPCION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAVORITO" EntityType="Self.FAVORITO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MASCOTA" EntityType="Self.MASCOTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUBLICACION" EntityType="Self.PUBLICACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REGION" EntityType="Self.REGION" Schema="dbo" store:Type="Tables" />
@@ -126,6 +149,10 @@
           <AssociationSet Name="ADOPCION_fk0" Association="Self.ADOPCION_fk0">
             <End Role="MASCOTA" EntitySet="MASCOTA" />
             <End Role="ADOPCION" EntitySet="ADOPCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FAV_IDPUB" Association="Self.FK_FAV_IDPUB">
+            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
+            <End Role="FAVORITO" EntitySet="FAVORITO" />
           </AssociationSet>
           <AssociationSet Name="PUBLICACION_FK1" Association="Self.PUBLICACION_FK1">
             <End Role="MASCOTA" EntitySet="MASCOTA" />
@@ -140,8 +167,7 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="adoptappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -190,6 +216,7 @@
           <Property Name="COM_NOMBRE_COMUNA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="COMUNA" Relationship="Self.PUBLICACION_FK2" FromRole="PUBLICACION" ToRole="COMUNA" />
           <NavigationProperty Name="MASCOTA" Relationship="Self.PUBLICACION_FK1" FromRole="PUBLICACION" ToRole="MASCOTA" />
+          <NavigationProperty Name="FAVORITO" Relationship="adoptappModel.FK_FAV_IDPUB" FromRole="PUBLICACION" ToRole="FAVORITO" />
         </EntityType>
         <EntityType Name="REGION">
           <Key>
@@ -287,7 +314,35 @@
             <End Role="MASCOTA" EntitySet="MASCOTA" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
+          <EntitySet Name="FAVORITO" EntityType="adoptappModel.FAVORITO" />
+          <AssociationSet Name="FK_FAV_IDPUB" Association="adoptappModel.FK_FAV_IDPUB">
+            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
+            <End Role="FAVORITO" EntitySet="FAVORITO" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="FAVORITO">
+          <Key>
+            <PropertyRef Name="FAV_ID_FAVORITO" />
+          </Key>
+          <Property Name="USU_RUT" Type="Int32" Nullable="false" />
+          <Property Name="PUB_ID_PUBLICACION" Type="Int32" Nullable="false" />
+          <Property Name="FAV_ID_FAVORITO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PUBLICACION" Relationship="adoptappModel.FK_FAV_IDPUB" FromRole="FAVORITO" ToRole="PUBLICACION" />
+        </EntityType>
+        <Association Name="FK_FAV_IDPUB">
+          <End Type="adoptappModel.PUBLICACION" Role="PUBLICACION" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adoptappModel.FAVORITO" Role="FAVORITO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PUBLICACION">
+              <PropertyRef Name="PUB_ID_PUBLICACION" />
+            </Principal>
+            <Dependent Role="FAVORITO">
+              <PropertyRef Name="PUB_ID_PUBLICACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -360,6 +415,15 @@
                 <ScalarProperty Name="USU_DIRECCION" ColumnName="USU_DIRECCION" />
                 <ScalarProperty Name="USU_TIENE_MASCOTA_FLAG" ColumnName="USU_TIENE_MASCOTA_FLAG" />
                 <ScalarProperty Name="USU_FECHA_NACIMIENTO" ColumnName="USU_FECHA_NACIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAVORITO">
+            <EntityTypeMapping TypeName="adoptappModel.FAVORITO">
+              <MappingFragment StoreEntitySet="FAVORITO">
+                <ScalarProperty Name="FAV_ID_FAVORITO" ColumnName="FAV_ID_FAVORITO" />
+                <ScalarProperty Name="PUB_ID_PUBLICACION" ColumnName="PUB_ID_PUBLICACION" />
+                <ScalarProperty Name="USU_RUT" ColumnName="USU_RUT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,6 +14,12 @@ namespace BaseDatos
     
     public partial class PUBLICACION
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PUBLICACION()
+        {
+            this.FAVORITO = new HashSet<FAVORITO>();
+        }
+    
         public int PUB_ID_PUBLICACION { get; set; }
         public System.DateTime PUB_FECHA { get; set; }
         public byte[] PUB_FOTO { get; set; }
@@ -27,5 +33,7 @@ namespace BaseDatos
     
         public virtual COMUNA COMUNA { get; set; }
         public virtual MASCOTA MASCOTA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FAVORITO> FAVORITO { get; set; }
     }
 }
