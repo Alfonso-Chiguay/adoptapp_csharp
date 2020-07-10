@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="TodasPublicaciones" Height="450" Width="800">
     <Grid>
+        <DataGrid x:Name="dtgPublicaciones" HorizontalAlignment="Left" Height="206" Margin="117,143,0,0" 
+                  VerticalAlignment="Top" Width="551" IsReadOnly="true" AutoGenerateColumns="False"> 
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="NOMBRE" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="TIPO MASCOTA" Binding="{Binding Tipo}" />
+            </DataGrid.Columns>
+        </DataGrid>
         
+        
+        
+        <ComboBox x:Name="cbbComuna" HorizontalAlignment="Left" Text="Comuna"  Margin="41,86,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Margin="190,86,0,0" VerticalAlignment="Top" Width="120" Text="REGION" IsEditable="False"/>
+        <ComboBox x:Name="cbbTipoMascota" HorizontalAlignment="Left" Margin="329,87,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Gato" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Perro" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="cbbEdad" HorizontalAlignment="Left" Margin="473,91,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="0-11" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="12-23" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="24-35" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="cbbFecha" HorizontalAlignment="Left" Margin="620,93,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Últimos 7 días" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Últimos 14 días" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Últimos 21 días" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="68,24,0,0" VerticalAlignment="Top"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="703,25,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

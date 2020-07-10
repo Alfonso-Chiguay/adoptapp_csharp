@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDatos.Controlador;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,33 @@ namespace Presentacion.Vistas
     /// </summary>
     public partial class TodasPublicaciones : Window
     {
+        Con_Publicacion conPub;
+        Con_Region conReg;
+        Con_Comuna conCom;
         public TodasPublicaciones()
         {
             InitializeComponent();
+            conPub = new Con_Publicacion();
+
+            Actualizar();
+            LoadCombobox();
+        }
+
+        private void LoadCombobox()
+        {
+            conReg = new Con_Region();
+            cbbRegion.ItemsSource = conReg.listarRegiones();
+
+            conCom = new Con_Comuna();
+            cbbComuna.ItemsSource = conCom.listarComunas();
+
+        }
+
+        private void Actualizar()
+        {
+            
+            dtgPublicaciones.ItemsSource = conPub.GetAll();
+            dtgPublicaciones.Items.Refresh();
         }
     }
 }

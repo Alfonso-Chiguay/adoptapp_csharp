@@ -42,5 +42,12 @@ namespace Presentacion.Vistas
             CrearPublicacion ventana = new CrearPublicacion(usuario.USE_NAME);
             ventana.ShowDialog();
         }
+
+        private void btn_ver_publicaciones_Click(object sender, RoutedEventArgs e)
+        {
+            TodasPublicaciones obj = new TodasPublicaciones();
+            this.Close();
+            obj.ShowDialog();
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace BaseDatos.Controlador
             }
         }
 
-        public List<PUBLICACION> GetAll(int id)
+        public List<PUBLICACION> GetAll()
         {
             using (adoptappEntities entidades = new adoptappEntities())
             {
