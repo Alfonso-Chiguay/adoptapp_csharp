@@ -10,7 +10,7 @@ namespace BaseDatos.Controlador
     {
         public void crearPublicacion(PUBLICACION pub)
         {
-            using(adoptappEntities entidades = new adoptappEntities())
+            using(adoptappEntidad entidades = new adoptappEntidad())
             {
                 entidades.PUBLICACION.Add(pub);
                 entidades.SaveChanges();
@@ -19,7 +19,7 @@ namespace BaseDatos.Controlador
 
         public int siguienteId()
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
                 var consulta = entidades.PUBLICACION.ToList();
                 if (consulta.Count == 0)
@@ -31,7 +31,7 @@ namespace BaseDatos.Controlador
 
         public List<PUBLICACION> GetAll()
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
                 List<PUBLICACION> lista = new List<PUBLICACION>();
                 var consulta = entidades.PUBLICACION.ToList();
@@ -45,10 +45,10 @@ namespace BaseDatos.Controlador
 
         public PUBLICACION GetOne(int id)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
                 PUBLICACION obj = new PUBLICACION();
-                obj = entidades.PUBLICACION.Where(x => x.ID_PUB.Equals(id)).FirstOrDefault();
+                obj = entidades.PUBLICACION.Where(x => x.PUB_ID_PUBLICACION.Equals(id)).FirstOrDefault();
                 return obj;
             }
 

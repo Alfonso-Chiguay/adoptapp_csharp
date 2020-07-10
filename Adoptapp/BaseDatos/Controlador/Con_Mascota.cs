@@ -10,7 +10,7 @@ namespace BaseDatos.Controlador
     {   
         public int siguienteId()
         {
-            using(adoptappEntities entidades = new adoptappEntities())
+            using(adoptappEntidad entidades = new adoptappEntidad())
             {
                 var consulta = entidades.MASCOTA.ToList();
                 if (consulta.Count == 0)
@@ -21,7 +21,7 @@ namespace BaseDatos.Controlador
         }
         public void agregarMascota(MASCOTA mas)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
                 entidades.MASCOTA.Add(mas);
                 entidades.SaveChanges();

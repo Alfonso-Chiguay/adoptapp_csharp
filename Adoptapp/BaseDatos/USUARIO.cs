@@ -14,27 +14,19 @@ namespace BaseDatos
     
     public partial class USUARIO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public USUARIO()
-        {
-            this.PUBLICACION1 = new HashSet<PUBLICACION>();
-        }
+        public int USU_RUT { get; set; }
+        public string USU_DV { get; set; }
+        public string USU_NOMBRE { get; set; }
+        public int USU_TELEFONO { get; set; }
+        public string USU_CORREO { get; set; }
+        public string USU_USERNAME { get; set; }
+        public string USU_PASSWORD { get; set; }
+        public int COM_ID_COMUNA { get; set; }
+        public string COM_NOMBRE_COMUNA { get; set; }
+        public string USU_DIRECCION { get; set; }
+        public bool USU_TIENE_MASCOTA_FLAG { get; set; }
+        public System.DateTime USU_FECHA_NACIMIENTO { get; set; }
     
-        public int RUT { get; set; }
-        public string DV { get; set; }
-        public string NOMBRE { get; set; }
-        public Nullable<int> TELEFONO { get; set; }
-        public string CORREO { get; set; }
-        public string USE_NAME { get; set; }
-        public string PASSWORD { get; set; }
-        public string REGION { get; set; }
-        public string COMUNA { get; set; }
-        public string DIRECCION { get; set; }
-        public bool TIENE_MACOTA { get; set; }
-        public System.DateTime FECHA_NACIMIENTO { get; set; }
-    
-        public virtual ADOPCION ADOPCION { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PUBLICACION> PUBLICACION1 { get; set; }
+        public virtual COMUNA COMUNA { get; set; }
     }
 }

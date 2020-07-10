@@ -13,10 +13,10 @@ namespace BaseDatos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class adoptappEntities : DbContext
+    public partial class adoptappEntidad : DbContext
     {
-        public adoptappEntities()
-            : base("name=adoptappEntities")
+        public adoptappEntidad()
+            : base("name=adoptappEntidad")
         {
         }
     
@@ -26,11 +26,10 @@ namespace BaseDatos
         }
     
         public virtual DbSet<ADOPCION> ADOPCION { get; set; }
-        public virtual DbSet<INVENTARIO_REGISTROS> INVENTARIO_REGISTROS { get; set; }
+        public virtual DbSet<COMUNA> COMUNA { get; set; }
         public virtual DbSet<MASCOTA> MASCOTA { get; set; }
         public virtual DbSet<PUBLICACION> PUBLICACION { get; set; }
-        public virtual DbSet<USUARIO> USUARIO { get; set; }
-        public virtual DbSet<COMUNA> COMUNA { get; set; }
         public virtual DbSet<REGION> REGION { get; set; }
+        public virtual DbSet<USUARIO> USUARIO { get; set; }
     }
 }

@@ -30,8 +30,8 @@ namespace Presentacion.Vistas
             InitializeComponent();
             Con_Usuario c_user = new Con_Usuario();
             USUARIO usuario = c_user.getByUserName(user);
-            lbl_publicador.Content = usuario.NOMBRE;
-            lbl_telefono.Content = usuario.TELEFONO;
+            lbl_publicador.Content = usuario.USU_NOMBRE;
+            lbl_telefono.Content = usuario.USU_TELEFONO;
             cb_mascota.Items.Add("Perro");
             cb_mascota.Items.Add("Gato");
             cb_mascota.Items.Add("Ave");
@@ -90,38 +90,38 @@ namespace Presentacion.Vistas
             Con_Usuario c_user = new Con_Usuario();
             USUARIO usuario = c_user.getByUserName(lbl_user.Content.ToString());
             if (!txt_mascota.Text.Equals(""))
-                mascota.NOMBRE = txt_mascota.Text;
+                mascota.MAS_NOMBRE = txt_mascota.Text;
             else
                 exito = false;
             if (cb_mascota.SelectedIndex != -1)
-                mascota.ESPECIE = cb_mascota.SelectedItem.ToString();
+                mascota.MAS_TIPO = cb_mascota.SelectedItem.ToString();
             else
                 exito = false;
-            mascota.RAZA = "ESTANDAR";
-            mascota.ID_MAS = c_masc.siguienteId();
-            mascota.TAMAÑO = 100;
+            
+            mascota.MAS_ID_MASCOTA = c_masc.siguienteId();
+            
             int edad;
             if (Int32.TryParse(txt_edad.Text, out edad))
-                mascota.EDAD = edad;
+                mascota.MAS_EDAD = edad;
             else
                 exito = false;
 
 
 
             if (!txt_descripcion.Text.Equals(""))
-                pub.DESCRIPCION = txt_descripcion.Text;
+                pub.PUB_DESCRIPCION = txt_descripcion.Text;
             else
                 exito = false;
 
-            int rut = usuario.RUT;
-            pub.ID_MASCOTA = mascota.ID_MAS;
-            pub.ID_PUB = c_pub.siguienteId();
-            pub.FECHA = DateTime.Now;
+            int rut = usuario.USU_RUT;
+            pub.MAS_ID_MASCOTA = mascota.MAS_ID_MASCOTA;
+            pub.PUB_ID_PUBLICACION = c_pub.siguienteId();
+            pub.PUB_FECHA = DateTime.Now;
 
 
            
-            pub.U_RUT = rut;
-            pub.FOTO_URI = lbl_ruta.Content.ToString();
+            pub.PUB_USU_RUT = rut;
+            pub.PUB_FOTO_URI = lbl_ruta.Content.ToString();
 
             if (exito)
             {

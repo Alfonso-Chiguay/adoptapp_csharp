@@ -44,17 +44,17 @@ namespace Negocio
         public int validarNuevoUsuario(USUARIO usuario)
         {
             Con_Usuario ctrluser = new Con_Usuario();
-            if (usuario.NOMBRE.Equals("") || usuario.NOMBRE.Length < 2)
+            if (usuario.USU_NOMBRE.Equals("") || usuario.USU_NOMBRE.Length < 2)
                 return 0;
-            else if (!rutValido(usuario.RUT.ToString()+"-"+usuario.DV))
+            else if (!rutValido(usuario.USU_RUT.ToString()+"-"+usuario.USU_DV))
                 return -1;
-            else if (!emailValido(usuario.CORREO))
+            else if (!emailValido(usuario.USU_CORREO))
                 return -2;
-            else if (DateTime.Now.Year - usuario.FECHA_NACIMIENTO.Year < 14)
+            else if (DateTime.Now.Year - usuario.USU_FECHA_NACIMIENTO.Year < 14)
                 return -3;
-            else if (usuario.TELEFONO.ToString().Length < 9)
+            else if (usuario.USU_TELEFONO.ToString().Length < 9)
                 return -4;
-            else if (ctrluser.existeUsername(usuario.USE_NAME))
+            else if (ctrluser.existeUsername(usuario.USU_USERNAME))
                 return -5;
             else return 1;
         }

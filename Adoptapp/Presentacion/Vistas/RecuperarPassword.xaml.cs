@@ -40,11 +40,11 @@ namespace Presentacion.Vistas
             {
                 user = c_user.datosPorCorreo(txt_email.Text);
                 System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
-                msg.To.Add(user.CORREO);
+                msg.To.Add(user.USU_CORREO);
                 msg.Subject = "[Adoptapp] Recuperar contraseña";
                 msg.SubjectEncoding = System.Text.Encoding.UTF8;
                 msg.Bcc.Add("adoptapp.mail@gmail.com");
-                msg.Body = "Hola " + user.NOMBRE + "!, tu usuario es: " + user.USE_NAME + ", y tu contraseña es: " + user.PASSWORD;
+                msg.Body = "Hola " + user.USU_NOMBRE + "!, tu usuario es: " + user.USU_USERNAME + ", y tu contraseña es: " + user.USU_PASSWORD;
                 msg.BodyEncoding = System.Text.Encoding.UTF8;
                 msg.IsBodyHtml = true;
                 msg.From = new System.Net.Mail.MailAddress("adoptapp.mail@gmail.com");

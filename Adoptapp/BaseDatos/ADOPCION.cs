@@ -14,11 +14,10 @@ namespace BaseDatos
     
     public partial class ADOPCION
     {
-        public int ID_ADOP { get; set; }
-        public System.DateTime FECHA_ADOP { get; set; }
+        public int ADO_ID_ADOPCION { get; set; }
+        public System.DateTime ADO_FECHA_ADOP { get; set; }
+        public int MAS_ID_MASCOTA { get; set; }
     
-        public virtual USUARIO USUARIO { get; set; }
         public virtual MASCOTA MASCOTA { get; set; }
-        public virtual INVENTARIO_REGISTROS INVENTARIO_REGISTROS { get; set; }
     }
 }

@@ -4,538 +4,362 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="adoptappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="adoptappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADOPCION">
           <Key>
-            <PropertyRef Name="ID_ADOP" />
+            <PropertyRef Name="ADO_ID_ADOPCION" />
           </Key>
-          <Property Name="ID_ADOP" Type="int" Nullable="false" />
-          <Property Name="FECHA_ADOP" Type="date" Nullable="false" />
+          <Property Name="ADO_ID_ADOPCION" Type="int" Nullable="false" />
+          <Property Name="ADO_FECHA_ADOP" Type="date" Nullable="false" />
+          <Property Name="MAS_ID_MASCOTA" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'adoptapp.dbo.COMUNA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="COMUNA">
           <Key>
-            
-            <PropertyRef Name="NOMBRECOMUNA" />
+            <PropertyRef Name="COM_ID_COMUNA" />
           </Key>
-          <Property Name="IDCOMUNA" Type="int" Nullable="false" />
-          <Property Name="NOMBRECOMUNA" Type="nvarchar" MaxLength="40" Nullable="false" />
-        </EntityType>
-        <EntityType Name="INVENTARIO_REGISTROS">
-          <Key>
-            <PropertyRef Name="ID_REG" />
-          </Key>
-          <Property Name="ID_REG" Type="int" Nullable="false" />
-          <Property Name="CAN_ESPECIE" Type="int" Nullable="false" />
-          <Property Name="TIPO_REG" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="COM_ID_COMUNA" Type="int" Nullable="false" />
+          <Property Name="COM_NOMBRE_COMUNA" Type="varchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="MASCOTA">
           <Key>
-            <PropertyRef Name="ID_MAS" />
+            <PropertyRef Name="MAS_ID_MASCOTA" />
           </Key>
-          <Property Name="ID_MAS" Type="int" Nullable="false" />
-          <Property Name="RAZA" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="EDAD" Type="int" />
-          <Property Name="ESPECIE" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="NOMBRE" Type="nvarchar" MaxLength="12" Nullable="false" />
-          <Property Name="TAMAÑO" Type="float" Nullable="false" />
+          <Property Name="MAS_ID_MASCOTA" Type="int" Nullable="false" />
+          <Property Name="MAS_TIPO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAS_EDAD" Type="int" Nullable="false" />
+          <Property Name="MAS_NOMBRE" Type="varchar" MaxLength="60" Nullable="false" />
         </EntityType>
         <EntityType Name="PUBLICACION">
           <Key>
-            <PropertyRef Name="ID_PUB" />
+            <PropertyRef Name="PUB_ID_PUBLICACION" />
           </Key>
-          <Property Name="ID_PUB" Type="int" Nullable="false" />
-          <Property Name="FECHA" Type="date" Nullable="false" />
-          <Property Name="FOTO" Type="image" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" />
-          <Property Name="U_RUT" Type="int" Nullable="false" />
-          <Property Name="FOTO_URI" Type="nvarchar(max)" />
-          <Property Name="ID_MASCOTA" Type="int" />
+          <Property Name="PUB_ID_PUBLICACION" Type="int" Nullable="false" />
+          <Property Name="PUB_FECHA" Type="date" Nullable="false" />
+          <Property Name="PUB_FOTO" Type="image" />
+          <Property Name="PUB_FOTO_URI" Type="varchar" MaxLength="255" />
+          <Property Name="PUB_DESCRIPCION" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PUB_USU_RUT" Type="int" Nullable="false" />
+          <Property Name="MAS_ID_MASCOTA" Type="int" Nullable="false" />
+          <Property Name="MAS_NOMBRE" Type="varchar" MaxLength="200" />
+          <Property Name="COM_ID_COMUNA" Type="int" Nullable="false" />
+          <Property Name="COM_NOMBRE_COMUNA" Type="varchar" MaxLength="200" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'adoptapp.dbo.REGION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="REGION">
           <Key>
-            
-            <PropertyRef Name="NOMBRE_REGION" />
+            <PropertyRef Name="REG_ID_REGION" />
           </Key>
-          <Property Name="IDREGION" Type="int" Nullable="false" />
-          <Property Name="NOMBRE_REGION" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="REG_ID_REGION" Type="int" Nullable="false" />
+          <Property Name="REG_NOMBRE_REGION" Type="varchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
-            <PropertyRef Name="RUT" />
+            <PropertyRef Name="USU_RUT" />
           </Key>
-          <Property Name="RUT" Type="int" Nullable="false" />
-          <Property Name="DV" Type="nvarchar" MaxLength="1" Nullable="false" />
-          <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="TELEFONO" Type="int" />
-          <Property Name="CORREO" Type="nvarchar" MaxLength="100" />
-          <Property Name="USE_NAME" Type="nvarchar" MaxLength="40" />
-          <Property Name="PASSWORD" Type="nvarchar" MaxLength="25" />
-          <Property Name="REGION" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="COMUNA" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="DIRECCION" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="TIENE_MACOTA" Type="bit" Nullable="false" />
-          <Property Name="FECHA_NACIMIENTO" Type="datetime" Nullable="false" />
+          <Property Name="USU_RUT" Type="int" Nullable="false" />
+          <Property Name="USU_DV" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="USU_NOMBRE" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="USU_TELEFONO" Type="int" Nullable="false" />
+          <Property Name="USU_CORREO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="USU_USERNAME" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="USU_PASSWORD" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="COM_ID_COMUNA" Type="int" Nullable="false" />
+          <Property Name="COM_NOMBRE_COMUNA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_DIRECCION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="USU_TIENE_MASCOTA_FLAG" Type="bit" Nullable="false" />
+          <Property Name="USU_FECHA_NACIMIENTO" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__ADOPCION__ID_ADO__2C3393D0">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="RUT" />
-            </Principal>
-            <Dependent Role="ADOPCION">
-              <PropertyRef Name="ID_ADOP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ADOPCION__ID_ADO__2D27B809">
+        <Association Name="ADOPCION_fk0">
           <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="1" />
-          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="0..1" />
+          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MASCOTA">
-              <PropertyRef Name="ID_MAS" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Principal>
             <Dependent Role="ADOPCION">
-              <PropertyRef Name="ID_ADOP" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INVENTARI__ID_RE__300424B4">
-          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="1" />
-          <End Role="INVENTARIO_REGISTROS" Type="Self.INVENTARIO_REGISTROS" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="PUBLICACION">
-              <PropertyRef Name="ID_PUB" />
-            </Principal>
-            <Dependent Role="INVENTARIO_REGISTROS">
-              <PropertyRef Name="ID_REG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__INVENTARI__ID_RE__30F848ED">
-          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="1" />
-          <End Role="INVENTARIO_REGISTROS" Type="Self.INVENTARIO_REGISTROS" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="ADOPCION">
-              <PropertyRef Name="ID_ADOP" />
-            </Principal>
-            <Dependent Role="INVENTARIO_REGISTROS">
-              <PropertyRef Name="ID_REG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PUBLICACI__ID_PU__2E1BDC42">
+        <Association Name="PUBLICACION_FK1">
           <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="1" />
-          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="MASCOTA">
-              <PropertyRef Name="ID_MAS" />
-            </Principal>
-            <Dependent Role="PUBLICACION">
-              <PropertyRef Name="ID_PUB" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PUBLICACI__ID_PU__2F10007B">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="RUT" />
-            </Principal>
-            <Dependent Role="PUBLICACION">
-              <PropertyRef Name="ID_PUB" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ID_MASC">
-          <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
           <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MASCOTA">
-              <PropertyRef Name="ID_MAS" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Principal>
             <Dependent Role="PUBLICACION">
-              <PropertyRef Name="ID_MASCOTA" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_U_RUT">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="PUBLICACION_FK2">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
           <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="RUT" />
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COM_ID_COMUNA" />
             </Principal>
             <Dependent Role="PUBLICACION">
-              <PropertyRef Name="U_RUT" />
+              <PropertyRef Name="COM_ID_COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_FK1">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COM_ID_COMUNA" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="COM_ID_COMUNA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="adoptappModelStoreContainer">
           <EntitySet Name="ADOPCION" EntityType="Self.ADOPCION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="INVENTARIO_REGISTROS" EntityType="Self.INVENTARIO_REGISTROS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MASCOTA" EntityType="Self.MASCOTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUBLICACION" EntityType="Self.PUBLICACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [COMUNA].[IDCOMUNA] AS [IDCOMUNA], 
-    [COMUNA].[NOMBRECOMUNA] AS [NOMBRECOMUNA]
-    FROM [dbo].[COMUNA] AS [COMUNA]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="REGION" EntityType="Self.REGION" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [REGION].[IDREGION] AS [IDREGION], 
-    [REGION].[NOMBRE_REGION] AS [NOMBRE_REGION]
-    FROM [dbo].[REGION] AS [REGION]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__ADOPCION__ID_ADO__2C3393D0" Association="Self.FK__ADOPCION__ID_ADO__2C3393D0">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="ADOPCION" EntitySet="ADOPCION" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ADOPCION__ID_ADO__2D27B809" Association="Self.FK__ADOPCION__ID_ADO__2D27B809">
+          <AssociationSet Name="ADOPCION_fk0" Association="Self.ADOPCION_fk0">
             <End Role="MASCOTA" EntitySet="MASCOTA" />
             <End Role="ADOPCION" EntitySet="ADOPCION" />
           </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__ID_RE__300424B4" Association="Self.FK__INVENTARI__ID_RE__300424B4">
-            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
-            <End Role="INVENTARIO_REGISTROS" EntitySet="INVENTARIO_REGISTROS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__ID_RE__30F848ED" Association="Self.FK__INVENTARI__ID_RE__30F848ED">
-            <End Role="ADOPCION" EntitySet="ADOPCION" />
-            <End Role="INVENTARIO_REGISTROS" EntitySet="INVENTARIO_REGISTROS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PUBLICACI__ID_PU__2E1BDC42" Association="Self.FK__PUBLICACI__ID_PU__2E1BDC42">
+          <AssociationSet Name="PUBLICACION_FK1" Association="Self.PUBLICACION_FK1">
             <End Role="MASCOTA" EntitySet="MASCOTA" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__PUBLICACI__ID_PU__2F10007B" Association="Self.FK__PUBLICACI__ID_PU__2F10007B">
-            <End Role="USUARIO" EntitySet="USUARIO" />
+          <AssociationSet Name="PUBLICACION_FK2" Association="Self.PUBLICACION_FK2">
+            <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
-          <AssociationSet Name="FK_ID_MASC" Association="Self.FK_ID_MASC">
-            <End Role="MASCOTA" EntitySet="MASCOTA" />
-            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
-          </AssociationSet>
-          <AssociationSet Name="FK_U_RUT" Association="Self.FK_U_RUT">
+          <AssociationSet Name="USUARIO_FK1" Association="Self.USUARIO_FK1">
+            <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="adoptappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ADOPCION">
           <Key>
-            <PropertyRef Name="ID_ADOP" />
+            <PropertyRef Name="ADO_ID_ADOPCION" />
           </Key>
-          <Property Name="ID_ADOP" Type="Int32" Nullable="false" />
-          <Property Name="FECHA_ADOP" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK__ADOPCION__ID_ADO__2C3393D0" FromRole="ADOPCION" ToRole="USUARIO" />
-          <NavigationProperty Name="MASCOTA" Relationship="Self.FK__ADOPCION__ID_ADO__2D27B809" FromRole="ADOPCION" ToRole="MASCOTA" />
-          <NavigationProperty Name="INVENTARIO_REGISTROS" Relationship="Self.FK__INVENTARI__ID_RE__30F848ED" FromRole="ADOPCION" ToRole="INVENTARIO_REGISTROS" />
+          <Property Name="ADO_ID_ADOPCION" Type="Int32" Nullable="false" />
+          <Property Name="ADO_FECHA_ADOP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MAS_ID_MASCOTA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MASCOTA" Relationship="Self.ADOPCION_fk0" FromRole="ADOPCION" ToRole="MASCOTA" />
         </EntityType>
-        <EntityType Name="INVENTARIO_REGISTROS">
+        <EntityType Name="COMUNA">
           <Key>
-            <PropertyRef Name="ID_REG" />
+            <PropertyRef Name="COM_ID_COMUNA" />
           </Key>
-          <Property Name="ID_REG" Type="Int32" Nullable="false" />
-          <Property Name="CAN_ESPECIE" Type="Int32" Nullable="false" />
-          <Property Name="TIPO_REG" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ADOPCION" Relationship="Self.FK__INVENTARI__ID_RE__30F848ED" FromRole="INVENTARIO_REGISTROS" ToRole="ADOPCION" />
-          <NavigationProperty Name="PUBLICACION" Relationship="Self.FK__INVENTARI__ID_RE__300424B4" FromRole="INVENTARIO_REGISTROS" ToRole="PUBLICACION" />
+          <Property Name="COM_ID_COMUNA" Type="Int32" Nullable="false" />
+          <Property Name="COM_NOMBRE_COMUNA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PUBLICACION" Relationship="Self.PUBLICACION_FK2" FromRole="COMUNA" ToRole="PUBLICACION" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.USUARIO_FK1" FromRole="COMUNA" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="MASCOTA">
           <Key>
-            <PropertyRef Name="ID_MAS" />
+            <PropertyRef Name="MAS_ID_MASCOTA" />
           </Key>
-          <Property Name="ID_MAS" Type="Int32" Nullable="false" />
-          <Property Name="RAZA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EDAD" Type="Int32" />
-          <Property Name="ESPECIE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TAMAÑO" Type="Double" Nullable="false" />
-          <NavigationProperty Name="ADOPCION" Relationship="Self.FK__ADOPCION__ID_ADO__2D27B809" FromRole="MASCOTA" ToRole="ADOPCION" />
-          <NavigationProperty Name="PUBLICACION1" Relationship="adoptappModel.FK_ID_MASC" FromRole="MASCOTA" ToRole="PUBLICACION" />
+          <Property Name="MAS_ID_MASCOTA" Type="Int32" Nullable="false" />
+          <Property Name="MAS_TIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAS_EDAD" Type="Int32" Nullable="false" />
+          <Property Name="MAS_NOMBRE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ADOPCION" Relationship="Self.ADOPCION_fk0" FromRole="MASCOTA" ToRole="ADOPCION" />
+          <NavigationProperty Name="PUBLICACION" Relationship="Self.PUBLICACION_FK1" FromRole="MASCOTA" ToRole="PUBLICACION" />
         </EntityType>
         <EntityType Name="PUBLICACION">
           <Key>
-            <PropertyRef Name="ID_PUB" />
+            <PropertyRef Name="PUB_ID_PUBLICACION" />
           </Key>
-          <Property Name="ID_PUB" Type="Int32" Nullable="false" />
-          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="INVENTARIO_REGISTROS" Relationship="Self.FK__INVENTARI__ID_RE__300424B4" FromRole="PUBLICACION" ToRole="INVENTARIO_REGISTROS" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="U_RUT" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="USUARIO1" Relationship="adoptappModel.FK_U_RUT" FromRole="PUBLICACION" ToRole="USUARIO" />
-          <Property Name="FOTO_URI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ID_MASCOTA" Type="Int32" />
-          <NavigationProperty Name="MASCOTA1" Relationship="adoptappModel.FK_ID_MASC" FromRole="PUBLICACION" ToRole="MASCOTA" />
+          <Property Name="PUB_ID_PUBLICACION" Type="Int32" Nullable="false" />
+          <Property Name="PUB_FECHA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PUB_FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PUB_FOTO_URI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PUB_DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PUB_USU_RUT" Type="Int32" Nullable="false" />
+          <Property Name="MAS_ID_MASCOTA" Type="Int32" Nullable="false" />
+          <Property Name="MAS_NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="COM_ID_COMUNA" Type="Int32" Nullable="false" />
+          <Property Name="COM_NOMBRE_COMUNA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMUNA" Relationship="Self.PUBLICACION_FK2" FromRole="PUBLICACION" ToRole="COMUNA" />
+          <NavigationProperty Name="MASCOTA" Relationship="Self.PUBLICACION_FK1" FromRole="PUBLICACION" ToRole="MASCOTA" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="REG_ID_REGION" />
+          </Key>
+          <Property Name="REG_ID_REGION" Type="Int32" Nullable="false" />
+          <Property Name="REG_NOMBRE_REGION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
-            <PropertyRef Name="RUT" />
+            <PropertyRef Name="USU_RUT" />
           </Key>
-          <Property Name="RUT" Type="Int32" Nullable="false" />
-          <Property Name="DV" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TELEFONO" Type="Int32" />
-          <Property Name="CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="USE_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="PASSWORD" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ADOPCION" Relationship="Self.FK__ADOPCION__ID_ADO__2C3393D0" FromRole="USUARIO" ToRole="ADOPCION" />
-          <Property Name="REGION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="COMUNA" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="TIENE_MACOTA" Type="Boolean" Nullable="false" />
-          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="PUBLICACION1" Relationship="adoptappModel.FK_U_RUT" FromRole="USUARIO" ToRole="PUBLICACION" />
+          <Property Name="USU_RUT" Type="Int32" Nullable="false" />
+          <Property Name="USU_DV" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USU_NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USU_TELEFONO" Type="Int32" Nullable="false" />
+          <Property Name="USU_CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USU_USERNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USU_PASSWORD" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COM_ID_COMUNA" Type="Int32" Nullable="false" />
+          <Property Name="COM_NOMBRE_COMUNA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USU_DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USU_TIENE_MASCOTA_FLAG" Type="Boolean" Nullable="false" />
+          <Property Name="USU_FECHA_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="COMUNA" Relationship="Self.USUARIO_FK1" FromRole="USUARIO" ToRole="COMUNA" />
         </EntityType>
-        <Association Name="FK__ADOPCION__ID_ADO__2C3393D0">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="RUT" />
-            </Principal>
-            <Dependent Role="ADOPCION">
-              <PropertyRef Name="ID_ADOP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ADOPCION__ID_ADO__2D27B809">
+        <Association Name="ADOPCION_fk0">
           <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="1" />
-          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="0..1" />
+          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MASCOTA">
-              <PropertyRef Name="ID_MAS" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Principal>
             <Dependent Role="ADOPCION">
-              <PropertyRef Name="ID_ADOP" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INVENTARI__ID_RE__30F848ED">
-          <End Role="ADOPCION" Type="Self.ADOPCION" Multiplicity="1" />
-          <End Role="INVENTARIO_REGISTROS" Type="Self.INVENTARIO_REGISTROS" Multiplicity="0..1" />
+        <Association Name="PUBLICACION_FK2">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
+          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ADOPCION">
-              <PropertyRef Name="ID_ADOP" />
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COM_ID_COMUNA" />
             </Principal>
-            <Dependent Role="INVENTARIO_REGISTROS">
-              <PropertyRef Name="ID_REG" />
+            <Dependent Role="PUBLICACION">
+              <PropertyRef Name="COM_ID_COMUNA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INVENTARI__ID_RE__300424B4">
-          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="1" />
-          <End Role="INVENTARIO_REGISTROS" Type="Self.INVENTARIO_REGISTROS" Multiplicity="0..1" />
+        <Association Name="USUARIO_FK1">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PUBLICACION">
-              <PropertyRef Name="ID_PUB" />
+            <Principal Role="COMUNA">
+              <PropertyRef Name="COM_ID_COMUNA" />
             </Principal>
-            <Dependent Role="INVENTARIO_REGISTROS">
-              <PropertyRef Name="ID_REG" />
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="COM_ID_COMUNA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PUBLICACI__ID_PU__2E1BDC42">
+        <Association Name="PUBLICACION_FK1">
           <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="1" />
-          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="0..1" />
+          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MASCOTA">
-              <PropertyRef Name="ID_MAS" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Principal>
             <Dependent Role="PUBLICACION">
-              <PropertyRef Name="ID_PUB" />
+              <PropertyRef Name="MAS_ID_MASCOTA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PUBLICACI__ID_PU__2F10007B">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="PUBLICACION" Type="Self.PUBLICACION" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="RUT" />
-            </Principal>
-            <Dependent Role="PUBLICACION">
-              <PropertyRef Name="ID_PUB" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="adoptappEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="adoptappEntidad" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ADOPCION" EntityType="Self.ADOPCION" />
-          <EntitySet Name="INVENTARIO_REGISTROS" EntityType="Self.INVENTARIO_REGISTROS" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
           <EntitySet Name="MASCOTA" EntityType="Self.MASCOTA" />
           <EntitySet Name="PUBLICACION" EntityType="Self.PUBLICACION" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
-          <AssociationSet Name="FK__ADOPCION__ID_ADO__2C3393D0" Association="Self.FK__ADOPCION__ID_ADO__2C3393D0">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="ADOPCION" EntitySet="ADOPCION" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ADOPCION__ID_ADO__2D27B809" Association="Self.FK__ADOPCION__ID_ADO__2D27B809">
+          <AssociationSet Name="ADOPCION_fk0" Association="Self.ADOPCION_fk0">
             <End Role="MASCOTA" EntitySet="MASCOTA" />
             <End Role="ADOPCION" EntitySet="ADOPCION" />
           </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__ID_RE__30F848ED" Association="Self.FK__INVENTARI__ID_RE__30F848ED">
-            <End Role="ADOPCION" EntitySet="ADOPCION" />
-            <End Role="INVENTARIO_REGISTROS" EntitySet="INVENTARIO_REGISTROS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__ID_RE__300424B4" Association="Self.FK__INVENTARI__ID_RE__300424B4">
-            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
-            <End Role="INVENTARIO_REGISTROS" EntitySet="INVENTARIO_REGISTROS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PUBLICACI__ID_PU__2E1BDC42" Association="Self.FK__PUBLICACI__ID_PU__2E1BDC42">
-            <End Role="MASCOTA" EntitySet="MASCOTA" />
+          <AssociationSet Name="PUBLICACION_FK2" Association="Self.PUBLICACION_FK2">
+            <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__PUBLICACI__ID_PU__2F10007B" Association="Self.FK__PUBLICACI__ID_PU__2F10007B">
+          <AssociationSet Name="USUARIO_FK1" Association="Self.USUARIO_FK1">
+            <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
-          <EntitySet Name="COMUNA" EntityType="adoptappModel.COMUNA" />
-          <EntitySet Name="REGION" EntityType="adoptappModel.REGION" />
-          <AssociationSet Name="FK_U_RUT" Association="adoptappModel.FK_U_RUT">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="PUBLICACION" EntitySet="PUBLICACION" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ID_MASC" Association="adoptappModel.FK_ID_MASC">
+          <AssociationSet Name="PUBLICACION_FK1" Association="Self.PUBLICACION_FK1">
             <End Role="MASCOTA" EntitySet="MASCOTA" />
             <End Role="PUBLICACION" EntitySet="PUBLICACION" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="COMUNA">
-          <Key>
-            <PropertyRef Name="NOMBRECOMUNA" />
-          </Key>
-          <Property Name="IDCOMUNA" Type="Int32" Nullable="false" />
-          <Property Name="NOMBRECOMUNA" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="REGION">
-          <Key>
-            <PropertyRef Name="NOMBRE_REGION" />
-          </Key>
-          <Property Name="IDREGION" Type="Int32" Nullable="false" />
-          <Property Name="NOMBRE_REGION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_U_RUT">
-          <End Type="adoptappModel.USUARIO" Role="USUARIO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="adoptappModel.PUBLICACION" Role="PUBLICACION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="RUT" />
-            </Principal>
-            <Dependent Role="PUBLICACION">
-              <PropertyRef Name="U_RUT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ID_MASC">
-          <End Type="adoptappModel.MASCOTA" Role="MASCOTA" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="adoptappModel.PUBLICACION" Role="PUBLICACION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MASCOTA">
-              <PropertyRef Name="ID_MAS" />
-            </Principal>
-            <Dependent Role="PUBLICACION">
-              <PropertyRef Name="ID_MASCOTA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="adoptappModelStoreContainer" CdmEntityContainer="adoptappEntities">
+        <EntityContainerMapping StorageEntityContainer="adoptappModelStoreContainer" CdmEntityContainer="adoptappEntidad">
           <EntitySetMapping Name="ADOPCION">
             <EntityTypeMapping TypeName="adoptappModel.ADOPCION">
               <MappingFragment StoreEntitySet="ADOPCION">
-                <ScalarProperty Name="ID_ADOP" ColumnName="ID_ADOP" />
-                <ScalarProperty Name="FECHA_ADOP" ColumnName="FECHA_ADOP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="INVENTARIO_REGISTROS">
-            <EntityTypeMapping TypeName="adoptappModel.INVENTARIO_REGISTROS">
-              <MappingFragment StoreEntitySet="INVENTARIO_REGISTROS">
-                <ScalarProperty Name="ID_REG" ColumnName="ID_REG" />
-                <ScalarProperty Name="CAN_ESPECIE" ColumnName="CAN_ESPECIE" />
-                <ScalarProperty Name="TIPO_REG" ColumnName="TIPO_REG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MASCOTA">
-            <EntityTypeMapping TypeName="adoptappModel.MASCOTA">
-              <MappingFragment StoreEntitySet="MASCOTA">
-                <ScalarProperty Name="ID_MAS" ColumnName="ID_MAS" />
-                <ScalarProperty Name="RAZA" ColumnName="RAZA" />
-                <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-                <ScalarProperty Name="ESPECIE" ColumnName="ESPECIE" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="TAMAÑO" ColumnName="TAMAÑO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PUBLICACION">
-            <EntityTypeMapping TypeName="adoptappModel.PUBLICACION">
-              <MappingFragment StoreEntitySet="PUBLICACION">
-                <ScalarProperty Name="ID_MASCOTA" ColumnName="ID_MASCOTA" />
-                <ScalarProperty Name="FOTO_URI" ColumnName="FOTO_URI" />
-                <ScalarProperty Name="U_RUT" ColumnName="U_RUT" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="ID_PUB" ColumnName="ID_PUB" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="USUARIO">
-            <EntityTypeMapping TypeName="adoptappModel.USUARIO">
-              <MappingFragment StoreEntitySet="USUARIO">
-                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
-                <ScalarProperty Name="TIENE_MACOTA" ColumnName="TIENE_MACOTA" />
-                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-                <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
-                <ScalarProperty Name="REGION" ColumnName="REGION" />
-                <ScalarProperty Name="RUT" ColumnName="RUT" />
-                <ScalarProperty Name="DV" ColumnName="DV" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
-                <ScalarProperty Name="USE_NAME" ColumnName="USE_NAME" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ADO_ID_ADOPCION" ColumnName="ADO_ID_ADOPCION" />
+                <ScalarProperty Name="ADO_FECHA_ADOP" ColumnName="ADO_FECHA_ADOP" />
+                <ScalarProperty Name="MAS_ID_MASCOTA" ColumnName="MAS_ID_MASCOTA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMUNA">
             <EntityTypeMapping TypeName="adoptappModel.COMUNA">
               <MappingFragment StoreEntitySet="COMUNA">
-                <ScalarProperty Name="NOMBRECOMUNA" ColumnName="NOMBRECOMUNA" />
-                <ScalarProperty Name="IDCOMUNA" ColumnName="IDCOMUNA" />
+                <ScalarProperty Name="COM_ID_COMUNA" ColumnName="COM_ID_COMUNA" />
+                <ScalarProperty Name="COM_NOMBRE_COMUNA" ColumnName="COM_NOMBRE_COMUNA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MASCOTA">
+            <EntityTypeMapping TypeName="adoptappModel.MASCOTA">
+              <MappingFragment StoreEntitySet="MASCOTA">
+                <ScalarProperty Name="MAS_ID_MASCOTA" ColumnName="MAS_ID_MASCOTA" />
+                <ScalarProperty Name="MAS_TIPO" ColumnName="MAS_TIPO" />
+                <ScalarProperty Name="MAS_EDAD" ColumnName="MAS_EDAD" />
+                <ScalarProperty Name="MAS_NOMBRE" ColumnName="MAS_NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUBLICACION">
+            <EntityTypeMapping TypeName="adoptappModel.PUBLICACION">
+              <MappingFragment StoreEntitySet="PUBLICACION">
+                <ScalarProperty Name="PUB_ID_PUBLICACION" ColumnName="PUB_ID_PUBLICACION" />
+                <ScalarProperty Name="PUB_FECHA" ColumnName="PUB_FECHA" />
+                <ScalarProperty Name="PUB_FOTO" ColumnName="PUB_FOTO" />
+                <ScalarProperty Name="PUB_FOTO_URI" ColumnName="PUB_FOTO_URI" />
+                <ScalarProperty Name="PUB_DESCRIPCION" ColumnName="PUB_DESCRIPCION" />
+                <ScalarProperty Name="PUB_USU_RUT" ColumnName="PUB_USU_RUT" />
+                <ScalarProperty Name="MAS_ID_MASCOTA" ColumnName="MAS_ID_MASCOTA" />
+                <ScalarProperty Name="MAS_NOMBRE" ColumnName="MAS_NOMBRE" />
+                <ScalarProperty Name="COM_ID_COMUNA" ColumnName="COM_ID_COMUNA" />
+                <ScalarProperty Name="COM_NOMBRE_COMUNA" ColumnName="COM_NOMBRE_COMUNA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REGION">
             <EntityTypeMapping TypeName="adoptappModel.REGION">
               <MappingFragment StoreEntitySet="REGION">
-                <ScalarProperty Name="NOMBRE_REGION" ColumnName="NOMBRE_REGION" />
-                <ScalarProperty Name="IDREGION" ColumnName="IDREGION" />
+                <ScalarProperty Name="REG_ID_REGION" ColumnName="REG_ID_REGION" />
+                <ScalarProperty Name="REG_NOMBRE_REGION" ColumnName="REG_NOMBRE_REGION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="adoptappModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="USU_RUT" ColumnName="USU_RUT" />
+                <ScalarProperty Name="USU_DV" ColumnName="USU_DV" />
+                <ScalarProperty Name="USU_NOMBRE" ColumnName="USU_NOMBRE" />
+                <ScalarProperty Name="USU_TELEFONO" ColumnName="USU_TELEFONO" />
+                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
+                <ScalarProperty Name="USU_USERNAME" ColumnName="USU_USERNAME" />
+                <ScalarProperty Name="USU_PASSWORD" ColumnName="USU_PASSWORD" />
+                <ScalarProperty Name="COM_ID_COMUNA" ColumnName="COM_ID_COMUNA" />
+                <ScalarProperty Name="COM_NOMBRE_COMUNA" ColumnName="COM_NOMBRE_COMUNA" />
+                <ScalarProperty Name="USU_DIRECCION" ColumnName="USU_DIRECCION" />
+                <ScalarProperty Name="USU_TIENE_MASCOTA_FLAG" ColumnName="USU_TIENE_MASCOTA_FLAG" />
+                <ScalarProperty Name="USU_FECHA_NACIMIENTO" ColumnName="USU_FECHA_NACIMIENTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

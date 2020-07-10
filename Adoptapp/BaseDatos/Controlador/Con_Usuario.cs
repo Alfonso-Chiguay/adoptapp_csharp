@@ -10,7 +10,7 @@ namespace BaseDatos.Controlador
     {
         public void registrarUsuario(USUARIO usuario)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
                 entidades.USUARIO.Add(usuario);
                 entidades.SaveChanges();
@@ -19,44 +19,44 @@ namespace BaseDatos.Controlador
 
         public bool existeUsername(string nombre_usuario)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
-                var consulta = entidades.USUARIO.Where(x => x.USE_NAME.ToLower().Equals(nombre_usuario.ToLower())).ToList();
+                var consulta = entidades.USUARIO.Where(x => x.USU_USERNAME.ToLower().Equals(nombre_usuario.ToLower())).ToList();
                 return consulta.Count == 1;                    
             }            
         }
 
         public bool inicioSesion(string usuario, string contrasena)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
-                return entidades.USUARIO.Any(x => x.USE_NAME.ToLower().Equals(usuario.ToLower()) &&
-                                                             x.PASSWORD.Equals(contrasena));                
+                return entidades.USUARIO.Any(x => x.USU_USERNAME.ToLower().Equals(usuario.ToLower()) &&
+                                                             x.USU_PASSWORD.Equals(contrasena));                
                    
             }
         }
 
         public bool existeCorreo(string email)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
-                return entidades.USUARIO.Any(x => x.CORREO.ToLower().Equals(email.ToLower()));
+                return entidades.USUARIO.Any(x => x.USU_CORREO.ToLower().Equals(email.ToLower()));
             }
         }
 
         public USUARIO datosPorCorreo(string email)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
-                return entidades.USUARIO.Where(x => x.CORREO.ToLower().Equals(email.ToLower())).FirstOrDefault();
+                return entidades.USUARIO.Where(x => x.USU_CORREO.ToLower().Equals(email.ToLower())).FirstOrDefault();
             }
         }
 
         public USUARIO getByUserName(string username)
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
-                return entidades.USUARIO.Where(x => x.USE_NAME.ToLower().Equals(username.ToLower())).FirstOrDefault();
+                return entidades.USUARIO.Where(x => x.USU_USERNAME.ToLower().Equals(username.ToLower())).FirstOrDefault();
             }
         }
     }

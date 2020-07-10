@@ -14,7 +14,19 @@ namespace BaseDatos
     
     public partial class COMUNA
     {
-        public int IDCOMUNA { get; set; }
-        public string NOMBRECOMUNA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public COMUNA()
+        {
+            this.PUBLICACION = new HashSet<PUBLICACION>();
+            this.USUARIO = new HashSet<USUARIO>();
+        }
+    
+        public int COM_ID_COMUNA { get; set; }
+        public string COM_NOMBRE_COMUNA { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PUBLICACION> PUBLICACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<USUARIO> USUARIO { get; set; }
     }
 }

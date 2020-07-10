@@ -4,22 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="43e9dfafe20e469ea00b601343181ed2" Name="Diagram1">
-        <EntityTypeShape EntityType="adoptappModel.ADOPCION" Width="1.5" PointX="3.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="adoptappModel.INVENTARIO_REGISTROS" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="adoptappModel.MASCOTA" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="adoptappModel.PUBLICACION" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="adoptappModel.USUARIO" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <AssociationConnector Association="adoptappModel.FK__ADOPCION__ID_ADO__2C3393D0" ManuallyRouted="false" />
-        <AssociationConnector Association="adoptappModel.FK__ADOPCION__ID_ADO__2D27B809" ManuallyRouted="false" />
-        <AssociationConnector Association="adoptappModel.FK__INVENTARI__ID_RE__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="adoptappModel.FK__INVENTARI__ID_RE__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="adoptappModel.FK__PUBLICACI__ID_PU__2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="adoptappModel.FK__PUBLICACI__ID_PU__2F10007B" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="adoptappModel.COMUNA" Width="1.5" PointX="6.5" PointY="5.5" />
-        <EntityTypeShape EntityType="adoptappModel.REGION" Width="1.5" PointX="8.5" PointY="0.5" />
-        <AssociationConnector Association="adoptappModel.FK_U_RUT" />
-        <AssociationConnector Association="adoptappModel.FK_ID_MASC" />
+      <Diagram DiagramId="203929ece7f04fa890e0a1b708cce760" Name="Diagram1">
+        <EntityTypeShape EntityType="adoptappModel.ADOPCION" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adoptappModel.COMUNA" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adoptappModel.MASCOTA" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="adoptappModel.PUBLICACION" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="adoptappModel.REGION" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="adoptappModel.USUARIO" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="adoptappModel.ADOPCION_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="adoptappModel.PUBLICACION_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="adoptappModel.USUARIO_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="adoptappModel.PUBLICACION_FK1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

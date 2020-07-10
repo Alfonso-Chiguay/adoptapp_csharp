@@ -28,18 +28,18 @@ namespace Presentacion.Vistas
             InitializeComponent();
             Con_Usuario userDao = new Con_Usuario();
             usuario = userDao.getByUserName(userName);
-            txtNombre.Text = usuario.NOMBRE;
+            txtNombre.Text = usuario.USU_NOMBRE;
             txtPublicaciones.Text = "2";
-            txtFechaNacimiento.Text = usuario.FECHA_NACIMIENTO.ToShortDateString();
-            txtDireccion.Text = usuario.DIRECCION;
-            txtCorreo.Text = usuario.CORREO;
-            txtComuna.Text = usuario.COMUNA;
+            txtFechaNacimiento.Text = usuario.USU_FECHA_NACIMIENTO.ToShortDateString();
+            txtDireccion.Text = usuario.USU_DIRECCION;
+            txtCorreo.Text = usuario.USU_CORREO;
+            txtComuna.Text = usuario.COM_NOMBRE_COMUNA;
             txtAdopciones.Text = "3";
         }
 
         private void btn_crear_publicacion_Click(object sender, RoutedEventArgs e)
         {
-            CrearPublicacion ventana = new CrearPublicacion(usuario.USE_NAME);
+            CrearPublicacion ventana = new CrearPublicacion(usuario.USU_USERNAME);
             ventana.ShowDialog();
         }
 

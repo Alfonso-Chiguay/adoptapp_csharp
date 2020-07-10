@@ -17,18 +17,18 @@ namespace BaseDatos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MASCOTA()
         {
-            this.PUBLICACION1 = new HashSet<PUBLICACION>();
+            this.ADOPCION = new HashSet<ADOPCION>();
+            this.PUBLICACION = new HashSet<PUBLICACION>();
         }
     
-        public int ID_MAS { get; set; }
-        public string RAZA { get; set; }
-        public Nullable<int> EDAD { get; set; }
-        public string ESPECIE { get; set; }
-        public string NOMBRE { get; set; }
-        public double TAMAÑO { get; set; }
+        public int MAS_ID_MASCOTA { get; set; }
+        public string MAS_TIPO { get; set; }
+        public int MAS_EDAD { get; set; }
+        public string MAS_NOMBRE { get; set; }
     
-        public virtual ADOPCION ADOPCION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PUBLICACION> PUBLICACION1 { get; set; }
+        public virtual ICollection<ADOPCION> ADOPCION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PUBLICACION> PUBLICACION { get; set; }
     }
 }

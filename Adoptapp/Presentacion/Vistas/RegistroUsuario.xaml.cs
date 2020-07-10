@@ -50,7 +50,7 @@ namespace Presentacion.Vistas
             USUARIO nuevo_usuario = new USUARIO();
             int rut;
             if (Int32.TryParse(txt_rut.Text, out rut))
-                nuevo_usuario.RUT = rut;
+                nuevo_usuario.USU_RUT = rut;
             else
             {
                 MessageBox.Show("Debe ingresar solo numero en el RUT", "Error en RUT", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -58,47 +58,48 @@ namespace Presentacion.Vistas
             }
 
 
-            nuevo_usuario.DV = txt_dv.Text;
-            nuevo_usuario.NOMBRE = txt_nombre_completo.Text;
-            nuevo_usuario.CORREO = txt_email.Text;
+            nuevo_usuario.USU_DV = txt_dv.Text;
+            nuevo_usuario.USU_NOMBRE = txt_nombre_completo.Text;
+            nuevo_usuario.USU_CORREO = txt_email.Text;
             int telefono;
             if (Int32.TryParse(txt_telefono.Text, out telefono))
-                nuevo_usuario.TELEFONO = telefono;
+                nuevo_usuario.USU_TELEFONO = telefono;
             else
             {
                 MessageBox.Show("Debe ingresar solo numeros en el telefono", "Error en Telefono", MessageBoxButton.OK, MessageBoxImage.Warning);
                 intentar = false;
             }
 
-            nuevo_usuario.FECHA_NACIMIENTO = dp_fecha_nacimiento.SelectedDate.Value;
-            if (cb_region.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debe seleccionar una region", "Error en region", MessageBoxButton.OK, MessageBoxImage.Warning);
-                intentar = false;
-            }
-            else
-                nuevo_usuario.REGION = cb_region.SelectedItem.ToString();
+            nuevo_usuario.USU_FECHA_NACIMIENTO = dp_fecha_nacimiento.SelectedDate.Value;
+            
             if (cb_comuna.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar una comuna", "Error en comuna", MessageBoxButton.OK, MessageBoxImage.Warning);
                 intentar = false;
             }
             else
-                nuevo_usuario.COMUNA = cb_comuna.SelectedItem.ToString();
+            {
+                nuevo_usuario.COM_NOMBRE_COMUNA = cb_comuna.SelectedItem.ToString();
+                Con_Comuna c_com = new Con_Comuna();
+                COMUNA comuna = c_com.getComunaPorNombre(cb_comuna.SelectedItem.ToString());
+                nuevo_usuario.COM_ID_COMUNA = comuna.COM_ID_COMUNA;
+
+            }
+                
             if (txt_direccion.Text.Length < 5)
             {
                 MessageBox.Show("Ingrese una direccion valida", "Error en direccion", MessageBoxButton.OK, MessageBoxImage.Warning);
                 intentar = false;
             }
             else
-                nuevo_usuario.DIRECCION = txt_direccion.Text;
+                nuevo_usuario.USU_DIRECCION = txt_direccion.Text;
 
             if (chk_tiene_mascota.IsChecked == true)
-                nuevo_usuario.TIENE_MACOTA = true;
-            else nuevo_usuario.TIENE_MACOTA = false;
-            nuevo_usuario.USE_NAME = txt_usuario.Text;
+                nuevo_usuario.USU_TIENE_MASCOTA_FLAG = true;
+            else nuevo_usuario.USU_TIENE_MASCOTA_FLAG = false;
+            nuevo_usuario.USU_USERNAME = txt_usuario.Text;
             if (txt_password.Password.Equals(txt_password2.Password))
-                nuevo_usuario.PASSWORD = txt_password.Password;
+                nuevo_usuario.USU_PASSWORD = txt_password.Password;
             else
             {
                 MessageBox.Show("Las contraseñas no coinciden", "Error en contraseña", MessageBoxButton.OK, MessageBoxImage.Warning);

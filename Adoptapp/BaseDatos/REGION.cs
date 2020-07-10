@@ -14,7 +14,7 @@ namespace BaseDatos
     
     public partial class REGION
     {
-        public int IDREGION { get; set; }
-        public string NOMBRE_REGION { get; set; }
+        public int REG_ID_REGION { get; set; }
+        public string REG_NOMBRE_REGION { get; set; }
     }
 }

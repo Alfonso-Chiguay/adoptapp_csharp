@@ -14,16 +14,18 @@ namespace BaseDatos
     
     public partial class PUBLICACION
     {
-        public int ID_PUB { get; set; }
-        public System.DateTime FECHA { get; set; }
-        public byte[] FOTO { get; set; }
-        public string DESCRIPCION { get; set; }
-        public int U_RUT { get; set; }
-        public string FOTO_URI { get; set; }
-        public Nullable<int> ID_MASCOTA { get; set; }
+        public int PUB_ID_PUBLICACION { get; set; }
+        public System.DateTime PUB_FECHA { get; set; }
+        public byte[] PUB_FOTO { get; set; }
+        public string PUB_FOTO_URI { get; set; }
+        public string PUB_DESCRIPCION { get; set; }
+        public int PUB_USU_RUT { get; set; }
+        public int MAS_ID_MASCOTA { get; set; }
+        public string MAS_NOMBRE { get; set; }
+        public int COM_ID_COMUNA { get; set; }
+        public string COM_NOMBRE_COMUNA { get; set; }
     
-        public virtual INVENTARIO_REGISTROS INVENTARIO_REGISTROS { get; set; }
-        public virtual USUARIO USUARIO1 { get; set; }
-        public virtual MASCOTA MASCOTA1 { get; set; }
+        public virtual COMUNA COMUNA { get; set; }
+        public virtual MASCOTA MASCOTA { get; set; }
     }
 }

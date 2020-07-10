@@ -10,13 +10,13 @@ namespace BaseDatos.Controlador
     {
         public List<string> listarRegiones()
         {
-            using (adoptappEntities entidades = new adoptappEntities())
+            using (adoptappEntidad entidades = new adoptappEntidad())
             {
                 List<string> lista = new List<string>();
                 var consulta = entidades.REGION.ToList();
                 foreach (REGION comuna in consulta)
                 {
-                    lista.Add(comuna.NOMBRE_REGION);
+                    lista.Add(comuna.REG_NOMBRE_REGION);
                 }
                 return lista;
             }
@@ -24,11 +24,11 @@ namespace BaseDatos.Controlador
 
         public string idRegion(string nombre_region)
         {
-            using(adoptappEntities entidades = new adoptappEntities())
+            using(adoptappEntidad entidades = new adoptappEntidad())
             {
                 List<string> lista = new List<string>();
-                var consulta = entidades.REGION.Where(x => x.NOMBRE_REGION.Equals(nombre_region)).FirstOrDefault();
-                return consulta.IDREGION.ToString();
+                var consulta = entidades.REGION.Where(x => x.REG_NOMBRE_REGION.Equals(nombre_region)).FirstOrDefault();
+                return consulta.REG_ID_REGION.ToString();
             }
         }
     }
