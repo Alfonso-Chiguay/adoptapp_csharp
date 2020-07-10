@@ -28,5 +28,30 @@ namespace BaseDatos.Controlador
                     return consulta.Count;
             }
         }
+
+        public List<PUBLICACION> GetAll(int id)
+        {
+            using (adoptappEntities entidades = new adoptappEntities())
+            {
+                List<PUBLICACION> lista = new List<PUBLICACION>();
+                var consulta = entidades.PUBLICACION.ToList();
+                foreach (PUBLICACION publicacion in consulta)
+                {
+                    lista.Add(publicacion);
+                }
+                return lista;
+            }
+        }
+
+        public PUBLICACION GetOne(int id)
+        {
+            using (adoptappEntities entidades = new adoptappEntities())
+            {
+                PUBLICACION obj = new PUBLICACION();
+                obj = entidades.PUBLICACION.Where(x => x.ID_PUB.Equals(id)).FirstOrDefault();
+                return obj;
+            }
+
+        }
     }
 }
