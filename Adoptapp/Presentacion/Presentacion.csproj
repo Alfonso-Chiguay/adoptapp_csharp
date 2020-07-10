@@ -68,8 +68,14 @@
     <Compile Include="Vistas\AnunciosGuardados.xaml.cs">
       <DependentUpon>AnunciosGuardados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\CambiarContrasena.xaml.cs">
+      <DependentUpon>CambiarContrasena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\CrearPublicacion.xaml.cs">
       <DependentUpon>CrearPublicacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\DetalleCuenta.xaml.cs">
+      <DependentUpon>DetalleCuenta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -105,7 +111,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vistas\CambiarContrasena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\CrearPublicacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\DetalleCuenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

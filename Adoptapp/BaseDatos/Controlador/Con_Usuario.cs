@@ -44,6 +44,14 @@ namespace BaseDatos.Controlador
             }
         }
 
+        public bool existeRut(int rut)
+        {
+            using (adoptappEntidad entidades = new adoptappEntidad())
+            {
+                return entidades.USUARIO.Any(x => x.USU_RUT == rut);
+            }
+        }
+
         public USUARIO datosPorCorreo(string email)
         {
             using (adoptappEntidad entidades = new adoptappEntidad())
@@ -57,6 +65,16 @@ namespace BaseDatos.Controlador
             using (adoptappEntidad entidades = new adoptappEntidad())
             {
                 return entidades.USUARIO.Where(x => x.USU_USERNAME.ToLower().Equals(username.ToLower())).FirstOrDefault();
+            }
+        }
+
+        public void cambiarContrasena(int rut, string nueva_pass)
+        {
+            using(adoptappEntidad entidades = new adoptappEntidad())
+            {
+                var consulta = entidades.USUARIO.Where(x => x.USU_RUT == rut).FirstOrDefault();
+                consulta.USU_PASSWORD = nueva_pass;
+                entidades.SaveChanges();
             }
         }
     }

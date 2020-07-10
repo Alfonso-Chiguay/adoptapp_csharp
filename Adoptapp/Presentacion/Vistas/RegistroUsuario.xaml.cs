@@ -50,7 +50,17 @@ namespace Presentacion.Vistas
             USUARIO nuevo_usuario = new USUARIO();
             int rut;
             if (Int32.TryParse(txt_rut.Text, out rut))
-                nuevo_usuario.USU_RUT = rut;
+            {
+                Con_Usuario temp = new Con_Usuario();
+                if (temp.existeRut(rut))
+                {
+                    MessageBox.Show("Este rut ya está registrado", "Error en RUT", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    intentar = false;
+                }
+                else
+                    nuevo_usuario.USU_RUT = rut;
+            }
+                
             else
             {
                 MessageBox.Show("Debe ingresar solo numero en el RUT", "Error en RUT", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -99,7 +109,13 @@ namespace Presentacion.Vistas
             else nuevo_usuario.USU_TIENE_MASCOTA_FLAG = false;
             nuevo_usuario.USU_USERNAME = txt_usuario.Text;
             if (txt_password.Password.Equals(txt_password2.Password))
-                nuevo_usuario.USU_PASSWORD = txt_password.Password;
+                if(txt_password.Password.Length > 2)
+                    nuevo_usuario.USU_PASSWORD = txt_password.Password;
+                else
+                {
+                    MessageBox.Show("Las contraseñas es muy corta", "Error en contraseña", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    intentar = false;
+                }
             else
             {
                 MessageBox.Show("Las contraseñas no coinciden", "Error en contraseña", MessageBoxButton.OK, MessageBoxImage.Warning);
