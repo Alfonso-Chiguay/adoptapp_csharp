@@ -72,9 +72,18 @@ namespace Negocio
                     return false;
                 else
                     return true;
-            }
+            }            
+        }
 
-            
+        public int convertirIdComunaARegion(int id_comuna)
+        {
+            int id_region;
+            if (id_comuna.ToString().Length == 4)
+                id_region = Int32.Parse(id_comuna.ToString().Substring(0, 1));
+
+            else
+                id_region = Int32.Parse(id_comuna.ToString().Substring(0, 2));
+            return id_region;
         }
     }
 }

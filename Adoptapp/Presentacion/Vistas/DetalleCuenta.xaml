@@ -12,7 +12,7 @@
         <Label Content="Correo" HorizontalAlignment="Left" Margin="104,221,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
         <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="39,251,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
         <Label Content="Direccion" HorizontalAlignment="Left" Margin="90,280,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Comuna" HorizontalAlignment="Left" Margin="414,309,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="lbl_comuna" Content="Comuna" HorizontalAlignment="Left" Margin="414,309,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold" Visibility="Hidden"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="155,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
         <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="155,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
         <TextBox x:Name="txtFechaNacimiento" HorizontalAlignment="Left" Height="23" Margin="155,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
@@ -23,11 +23,12 @@
         <Button x:Name="btn_cambiar_contrasena" Content="Cambiar contraseña" HorizontalAlignment="Left" Margin="155,115,0,0" VerticalAlignment="Top" Width="115" Height="26" Click="btn_cambiar_contrasena_Click"/>
         <Label Content="Telefono" HorizontalAlignment="Left" Margin="94,338,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="155,339,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259" FontFamily="Yu Gothic" IsEnabled="False"/>
-        <Button x:Name="btb_editar_correo" Content="Editar" HorizontalAlignment="Left" Margin="419,224,0,0" VerticalAlignment="Top" Width="89" Height="23"/>
-        <Button x:Name="btn_editar_direccion" Content="Editar" HorizontalAlignment="Left" Margin="419,282,0,0" VerticalAlignment="Top" Width="89" Height="23"/>
+        <Button x:Name="btb_editar_correo" Content="Editar" HorizontalAlignment="Left" Margin="419,224,0,0" VerticalAlignment="Top" Width="89" Height="23" Click="btb_editar_correo_Click"/>
+        <Button x:Name="btn_editar_direccion" Content="Editar" HorizontalAlignment="Left" Margin="419,282,0,0" VerticalAlignment="Top" Width="89" Height="23" Click="btn_editar_direccion_Click"/>
         <Button x:Name="btn_editar_telefono" Content="Editar" HorizontalAlignment="Left" Margin="419,338,0,0" VerticalAlignment="Top" Width="89" Height="23"/>
-        <ComboBox x:Name="cb_comuna" HorizontalAlignment="Left" Margin="473,309,0,0" VerticalAlignment="Top" Width="259" Height="24" IsEnabled="False"/>
-        <Label Content="Region" HorizontalAlignment="Left" Margin="95,310,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
-        <ComboBox x:Name="cb_region" HorizontalAlignment="Left" Margin="154,310,0,0" VerticalAlignment="Top" Width="259" Height="24" IsEnabled="False"/>
+        <ComboBox x:Name="cb_comuna" HorizontalAlignment="Left" Margin="473,309,0,0" VerticalAlignment="Top" Width="259" Height="24" IsEnabled="False" Visibility="Hidden"/>
+        <Label x:Name="lbl_region" Content="Region" HorizontalAlignment="Left" Margin="95,310,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold" Visibility="Hidden"/>
+        <ComboBox x:Name="cb_region" HorizontalAlignment="Left" Margin="154,310,0,0" VerticalAlignment="Top" Width="259" Height="24" IsEnabled="False" Visibility="Hidden" SelectionChanged="cb_region_SelectionChanged"/>
+        <Button Content="Guardar cambios" HorizontalAlignment="Left" Margin="625,378,0,0" VerticalAlignment="Top" Width="125" Height="31"/>
     </Grid>
 </Window>

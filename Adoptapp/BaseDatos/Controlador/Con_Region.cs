@@ -31,5 +31,15 @@ namespace BaseDatos.Controlador
                 return consulta.REG_ID_REGION.ToString();
             }
         }
+
+        public string nombreRegion(int id_region)
+        {
+            using (adoptappEntidad entidades = new adoptappEntidad())
+            {
+                
+                var consulta = entidades.REGION.Where(x => x.REG_ID_REGION == id_region).FirstOrDefault();
+                return consulta.REG_NOMBRE_REGION;
+            }
+        }
     }
 }
