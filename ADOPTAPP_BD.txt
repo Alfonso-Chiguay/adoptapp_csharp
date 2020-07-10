@@ -1,0 +1,501 @@
+CREATE TABLE [USUARIO] (
+	USU_RUT int NOT NULL,	
+	USU_DV varchar(1) NOT NULL,
+	USU_NOMBRE varchar(30) NOT NULL,
+	USU_TELEFONO int NOT NULL,
+	USU_CORREO varchar(100) NOT NULL,
+	USU_USERNAME varchar(40) NOT NULL,
+	USU_PASSWORD varchar(25) NOT NULL,
+	COM_ID_COMUNA INT NOT NULL,
+	COM_NOMBRE_COMUNA VARCHAR(50) NOT NULL,
+	USU_DIRECCION varchar(100) NOT NULL,
+	USU_TIENE_MASCOTA_FLAG bit NOT NULL,
+	USU_FECHA_NACIMIENTO datetime NOT NULL,
+  CONSTRAINT [PK_USUARIO] PRIMARY KEY CLUSTERED
+  (
+  [USU_RUT] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+)
+GO
+
+GO
+CREATE TABLE [REGION] (
+	REG_ID_REGION int NOT NULL,
+	REG_NOMBRE_REGION varchar(40) NOT NULL,
+  CONSTRAINT [PK_REGION] PRIMARY KEY CLUSTERED
+  (
+  [REG_ID_REGION] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+
+)
+GO
+CREATE TABLE [COMUNA] (
+	COM_ID_COMUNA int NOT NULL,
+	COM_NOMBRE_COMUNA varchar(40) NOT NULL,
+	
+  CONSTRAINT [PK_COMUNA] PRIMARY KEY CLUSTERED
+  (
+  [COM_ID_COMUNA] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+
+)
+GO
+
+
+
+CREATE TABLE [ADOPCION] (
+	ADO_ID_ADOPCION int NOT NULL,
+	ADO_FECHA_ADOP date NOT NULL,
+	MAS_ID_MASCOTA int NOT NULL,
+  CONSTRAINT [PK_ADOPCION] PRIMARY KEY CLUSTERED
+  (
+  [ADO_ID_ADOPCION] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+
+)
+GO
+
+
+
+
+CREATE TABLE [MASCOTA] (
+	MAS_ID_MASCOTA int NOT NULL,
+	MAS_TIPO varchar(50) NOT NULL,
+	MAS_EDAD int NOT NULL,
+	MAS_NOMBRE varchar(60) NOT NULL,
+  CONSTRAINT [PK_MASCOTA] PRIMARY KEY CLUSTERED
+  (
+  [MAS_ID_MASCOTA] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+
+)
+GO
+CREATE TABLE [PUBLICACION] (
+	PUB_ID_PUBLICACION int NOT NULL,
+	PUB_FECHA date NOT NULL,
+	PUB_FOTO image,
+	PUB_FOTO_URI varchar(255),
+	PUB_DESCRIPCION varchar(200) NOT NULL,
+	PUB_USU_RUT int NOT NULL,
+	MAS_ID_MASCOTA int NOT NULL,
+	MAS_NOMBRE VARCHAR(200),
+	COM_ID_COMUNA INT NOT NULL,
+	COM_NOMBRE_COMUNA VARCHAR(200),
+  CONSTRAINT [PK_PUBLICACION] PRIMARY KEY CLUSTERED
+  (
+  [PUB_ID_PUBLICACION] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+
+)
+GO
+
+CREATE TABLE [FAVORITO] (
+	FAV_ID_FAVORITO int NOT NULL,
+	USU_RUT int NOT NULL,
+	PUB_ID_PUBLICACION int NOT NULL,
+	
+  CONSTRAINT [PK_FAVORITO] PRIMARY KEY CLUSTERED
+  (
+  [FAV_ID_FAVORITO] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+
+)
+GO
+
+ALTER TABLE FAVORITO ADD CONSTRAINT FK_FAV_IDPUB FOREIGN KEY (PUB_ID_PUBLICACION)
+REFERENCES PUBLICACION (PUB_ID_PUBLICACION)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE [USUARIO] WITH CHECK ADD CONSTRAINT [USUARIO_FK1] FOREIGN KEY ([COM_ID_COMUNA]) REFERENCES [COMUNA]([COM_ID_COMUNA])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [USUARIO] CHECK CONSTRAINT [USUARIO_FK1] 
+GO
+
+ALTER TABLE [ADOPCION] WITH CHECK ADD CONSTRAINT [ADOPCION_fk0] FOREIGN KEY ([MAS_ID_MASCOTA]) REFERENCES [MASCOTA]([MAS_ID_MASCOTA])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [ADOPCION] CHECK CONSTRAINT [ADOPCION_fk0]
+GO
+
+
+ALTER TABLE [PUBLICACION] WITH CHECK ADD CONSTRAINT [PUBLICACION_FK2] FOREIGN KEY ([COM_ID_COMUNA]) REFERENCES [COMUNA]([COM_ID_COMUNA])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [PUBLICACION] CHECK CONSTRAINT [PUBLICACION_FK2] 
+GO
+ALTER TABLE [PUBLICACION] WITH CHECK ADD CONSTRAINT [PUBLICACION_FK1] FOREIGN KEY ([MAS_ID_MASCOTA ]) REFERENCES [MASCOTA]([MAS_ID_MASCOTA])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [PUBLICACION] CHECK CONSTRAINT [PUBLICACION_FK1] 
+GO
+
+
+
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (1, N'De Tarapacá')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (2, N'De Antofagasta')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (3, N'De Atacama')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (4, N'De Coquimbo')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (5, N'De Valparaíso')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (6, N'Del Libertador B. O''Higgins')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (7, N'Del Maule')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (8, N'Del Bíobío')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (9, N'De La Araucanía')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (10, N'De Los Lagos')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (11, N'De Aisén del Gral. C. Ibáñez del Campo')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (12, N'De Magallanes y de La Antártica Chilena')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (13, N'Metropolitana de Santiago')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (14, N'De Los Ríos')
+INSERT [dbo].[Region] ([reg_id_region], [reg_nombre_region]) VALUES (15, N'De Arica y Parinacota')
+
+
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (1101, N'Iquique')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (1107, N'Alto Hospicio')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (1401, N'Pozo Almonte')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (1402, N'Camiña')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (1403, N'Colchane')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (1404, N'Huara')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (1405, N'Pica')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2101, N'Antofagasta')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2102, N'Mejillones')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2103, N'Sierra Gorda')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2104, N'Taltal')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2201, N'Calama')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2202, N'Ollagüe')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2203, N'San Pedro de Atacama')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2301, N'Tocopilla')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (2302, N'María Elena')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3101, N'Copiapó')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3102, N'Caldera')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3103, N'Tierra Amarilla')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3201, N'Chañaral')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3202, N'Diego de Almagro')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3301, N'Vallenar')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3302, N'Alto del Carmen')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3303, N'Freirina')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (3304, N'Huasco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4101, N'La Serena')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4102, N'Coquimbo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4103, N'Andacollo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4104, N'La Higuera')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4105, N'Paiguano')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4106, N'Vicuña')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4201, N'Illapel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4202, N'Canela')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4203, N'Los Vilos')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4204, N'Salamanca')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4301, N'Ovalle')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4302, N'Combarbalá')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4303, N'Monte Patria')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4304, N'Punitaqui')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (4305, N'Río Hurtado')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5101, N'Valparaíso')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5102, N'Casablanca')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5103, N'Concón')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5104, N'Juan Fernández')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5105, N'Puchuncaví')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5107, N'Quintero')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5109, N'Viña del Mar')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5201, N'Isla  de Pascua')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5301, N'Los Andes')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5302, N'Calle Larga')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5303, N'Rinconada')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5304, N'San Esteban')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5401, N'La Ligua')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5402, N'Cabildo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5403, N'Papudo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5404, N'Petorca')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5405, N'Zapallar')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5501, N'Quillota')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5502, N'Calera')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5503, N'Hijuelas')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5504, N'La Cruz')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5506, N'Nogales')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5601, N'San Antonio')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5602, N'Algarrobo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5603, N'Cartagena')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5604, N'El Quisco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5605, N'El Tabo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5606, N'Santo Domingo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5701, N'San Felipe')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5702, N'Catemu')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5703, N'Llaillay')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5704, N'Panquehue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5705, N'Putaendo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5706, N'Santa María')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5801, N'Quilpué')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5802, N'Limache')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5803, N'Olmué')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (5804, N'Villa Alemana')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6101, N'Rancagua')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6102, N'Codegua')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6103, N'Coinco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6104, N'Coltauco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6105, N'Doñihue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6106, N'Graneros')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6107, N'Las Cabras')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6108, N'Machalí')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6109, N'Malloa')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6110, N'Mostazal')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6111, N'Olivar')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6112, N'Peumo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6113, N'Pichidegua')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6114, N'Quinta de Tilcoco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6115, N'Rengo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6116, N'Requínoa')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6117, N'San Vicente')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6201, N'Pichilemu')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6202, N'La Estrella')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6203, N'Litueche')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6204, N'Marchihue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6205, N'Navidad')
+GO
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6206, N'Paredones')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6301, N'San Fernando')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6302, N'Chépica')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6303, N'Chimbarongo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6304, N'Lolol')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6305, N'Nancagua')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6306, N'Palmilla')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6307, N'Peralillo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6308, N'Placilla')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6309, N'Pumanque')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (6310, N'Santa Cruz')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7101, N'Talca')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7102, N'Constitución')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7103, N'Curepto')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7104, N'Empedrado')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7105, N'Maule')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7106, N'Pelarco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7107, N'Pencahue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7108, N'Río Claro')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7109, N'San Clemente')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7110, N'San Rafael')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7201, N'Cauquenes')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7202, N'Chanco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7203, N'Pelluhue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7301, N'Curicó')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7302, N'Hualañé')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7303, N'Licantén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7304, N'Molina')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7305, N'Rauco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7306, N'Romeral')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7307, N'Sagrada Familia')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7308, N'Teno')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7309, N'Vichuquén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7401, N'Linares')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7402, N'Colbún')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7403, N'Longaví')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7404, N'Parral')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7405, N'Retiro')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7406, N'San Javier')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7407, N'Villa Alegre')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (7408, N'Yerbas Buenas')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8101, N'Concepción')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8102, N'Coronel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8103, N'Chiguayante')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8104, N'Florida')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8105, N'Hualqui')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8106, N'Lota')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8107, N'Penco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8108, N'San Pedro de la Paz')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8109, N'Santa Juana')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8110, N'Talcahuano')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8111, N'Tomé')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8112, N'Hualpén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8201, N'Lebu')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8202, N'Arauco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8203, N'Cañete')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8204, N'Contulmo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8205, N'Curanilahue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8206, N'Los Álamos')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8207, N'Tirúa')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8301, N'Los Ángeles')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8302, N'Antuco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8303, N'Cabrero')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8304, N'Laja')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8305, N'Mulchén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8306, N'Nacimiento')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8307, N'Negrete')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8308, N'Quilaco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8309, N'Quilleco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8310, N'San Rosendo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8311, N'Santa Bárbara')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8312, N'Tucapel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8313, N'Yumbel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8314, N'Alto Biobío')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8401, N'Chillán')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8402, N'Bulnes')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8403, N'Cobquecura')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8404, N'Coelemu')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8405, N'Coihueco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8406, N'Chillán Viejo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8407, N'El Carmen')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8408, N'Ninhue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8409, N'Ñiquén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8410, N'Pemuco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8411, N'Pinto')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8412, N'Portezuelo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8413, N'Quillón')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8414, N'Quirihue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8415, N'Ránquil')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8416, N'San Carlos')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8417, N'San Fabián')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8418, N'San Ignacio')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8419, N'San Nicolás')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8420, N'Treguaco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (8421, N'Yungay')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9101, N'Temuco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9102, N'Carahue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9103, N'Cunco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9104, N'Curarrehue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9105, N'Freire')
+GO
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9106, N'Galvarino')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9107, N'Gorbea')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9108, N'Lautaro')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9109, N'Loncoche')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9110, N'Melipeuco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9111, N'Nueva Imperial')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9112, N'Padre Las Casas')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9113, N'Perquenco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9114, N'Pitrufquén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9115, N'Pucón')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9116, N'Saavedra')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9117, N'Teodoro Schmidt')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9118, N'Toltén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9119, N'Vilcún')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9120, N'Villarrica')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9121, N'Cholchol')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9201, N'Angol')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9202, N'Collipulli')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9203, N'Curacautín')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9204, N'Ercilla')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9205, N'Lonquimay')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9206, N'Los Sauces')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9207, N'Lumaco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9208, N'Purén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9209, N'Renaico')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9210, N'Traiguén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (9211, N'Victoria')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10101, N'Puerto Montt')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10102, N'Calbuco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10103, N'Cochamó')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10104, N'Fresia')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10105, N'Frutillar')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10106, N'Los Muermos')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10107, N'Llanquihue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10108, N'Maullín')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10109, N'Puerto Varas')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10201, N'Castro')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10202, N'Ancud')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10203, N'Chonchi')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10204, N'Curaco de Vélez')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10205, N'Dalcahue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10206, N'Puqueldón')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10207, N'Queilén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10208, N'Quellón')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10209, N'Quemchi')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10210, N'Quinchao')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10301, N'Osorno')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10302, N'Puerto Octay')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10303, N'Purranque')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10304, N'Puyehue')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10305, N'Río Negro')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10306, N'San Juan de la Costa')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10307, N'San Pablo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10401, N'Chaitén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10402, N'Futaleufú')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10403, N'Hualaihué')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (10404, N'Palena')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11101, N'Coihaique')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11102, N'Lago Verde')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11201, N'Aisén')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11202, N'Cisnes')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11203, N'Guaitecas')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11301, N'Cochrane')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11302, N'O''Higgins')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11303, N'Tortel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11401, N'Chile Chico')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (11402, N'Río Ibáñez')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12101, N'Punta Arenas')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12102, N'Laguna Blanca')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12103, N'Río Verde')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12104, N'San Gregorio')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12201, N'Cabo de Hornos')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12202, N'Antártica')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12301, N'Porvenir')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12302, N'Primavera')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12303, N'Timaukel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12401, N'Natales')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (12402, N'Torres del Paine')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13101, N'Santiago')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13102, N'Cerrillos')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13103, N'Cerro Navia')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13104, N'Conchalí')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13105, N'El Bosque')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13106, N'Estación Central')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13107, N'Huechuraba')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13108, N'Independencia')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13109, N'La Cisterna')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13110, N'La Florida')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13111, N'La Granja')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13112, N'La Pintana')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13113, N'La Reina')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13114, N'Las Condes')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13115, N'Lo Barnechea')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13116, N'Lo Espejo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13117, N'Lo Prado')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13118, N'Macul')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13119, N'Maipú')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13120, N'Ñuñoa')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13121, N'Pedro Aguirre Cerda')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13122, N'Peñalolén')
+GO
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13123, N'Providencia')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13124, N'Pudahuel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13125, N'Quilicura')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13126, N'Quinta Normal')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13127, N'Recoleta')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13128, N'Renca')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13129, N'San Joaquín')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13130, N'San Miguel')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13131, N'San Ramón')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13132, N'Vitacura')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13201, N'Puente Alto')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13202, N'Pirque')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13203, N'San José de Maipo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13301, N'Colina')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13302, N'Lampa')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13303, N'Tiltil')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13401, N'San Bernardo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13402, N'Buin')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13403, N'Calera de Tango')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13404, N'Paine')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13501, N'Melipilla')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13502, N'Alhué')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13503, N'Curacaví')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13504, N'María Pinto')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13505, N'San Pedro')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13601, N'Talagante')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13602, N'El Monte')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13603, N'Isla de Maipo')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13604, N'Padre Hurtado')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (13605, N'Peñaflor')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14101, N'Valdivia')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14102, N'Corral')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14103, N'Lanco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14104, N'Los Lagos')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14105, N'Máfil')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14106, N'Mariquina')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14107, N'Paillaco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14108, N'Panguipulli')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14201, N'La Unión')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14202, N'Futrono')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14203, N'Lago Ranco')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (14204, N'Río Bueno')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (15101, N'Arica')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (15102, N'Camarones')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (15201, N'Putre')
+INSERT [dbo].[Comuna] ([com_id_comuna], [com_nombre_comuna]) VALUES (15202, N'General Lagos')
