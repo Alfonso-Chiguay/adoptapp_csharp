@@ -45,8 +45,7 @@ namespace Presentacion.Vistas
 
         private void btn_ver_publicaciones_Click(object sender, RoutedEventArgs e)
         {
-            TodasPublicaciones obj = new TodasPublicaciones();
-            this.Close();
+            TodasPublicaciones obj = new TodasPublicaciones();            
             obj.ShowDialog();
         }
 

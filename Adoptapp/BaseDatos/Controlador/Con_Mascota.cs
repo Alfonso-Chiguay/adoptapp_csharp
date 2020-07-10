@@ -27,5 +27,14 @@ namespace BaseDatos.Controlador
                 entidades.SaveChanges();
             }
         }
+
+        public MASCOTA macotaPorID(int id)
+        {
+            using(adoptappEntidad entidades = new adoptappEntidad())
+            {
+                var consulta = entidades.MASCOTA.Where(x => x.MAS_ID_MASCOTA == id).FirstOrDefault();
+                return consulta;
+            }
+        }
     }
 }
