@@ -53,7 +53,9 @@ namespace Presentacion.Vistas
         private void btn_detalle_Click(object sender, RoutedEventArgs e)
         {
             DetalleCuenta ventana = new DetalleCuenta(usuario);
+            this.Close();
             ventana.ShowDialog();
+            
         }
     }
 }

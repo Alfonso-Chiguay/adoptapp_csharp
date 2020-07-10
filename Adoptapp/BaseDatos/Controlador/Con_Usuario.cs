@@ -77,5 +77,18 @@ namespace BaseDatos.Controlador
                 entidades.SaveChanges();
             }
         }
+
+        public void actualizarUsuario(USUARIO usuario)
+        {
+            using(adoptappEntidad entidades = new adoptappEntidad())
+            {
+                var consulta = entidades.USUARIO.Where(x => x.USU_RUT == usuario.USU_RUT).FirstOrDefault();
+                consulta.USU_DIRECCION = usuario.USU_DIRECCION;
+                consulta.USU_TELEFONO = usuario.USU_TELEFONO;
+                consulta.USU_CORREO = usuario.USU_CORREO;
+
+                entidades.SaveChanges();
+            }
+        }
     }
 }
