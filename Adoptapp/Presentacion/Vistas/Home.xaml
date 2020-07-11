@@ -10,7 +10,7 @@
         <Label Content="Mi cuenta" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Sitka Heading" Foreground="#FF8B337B"/>
         <Button x:Name="btn_detalle" Content="Detalle Usuario" HorizontalAlignment="Left" Margin="488,27,0,0" VerticalAlignment="Top" Width="92" Background="#FFAD266F" Foreground="White" Click="btn_detalle_Click"/>
         <Button x:Name="btn_favoritos" Content="Favoritos" HorizontalAlignment="Left" Margin="585,27,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF5A3987"/>
-        <Button x:Name="btn_mis_publicaciones" Content="Mis publicaciones" HorizontalAlignment="Left" Margin="665,27,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.5,0.5" Foreground="#FFF8F8FA" Background="#FF313B8F"/>
+        <Button x:Name="btn_mis_publicaciones" Content="Mis publicaciones" HorizontalAlignment="Left" Margin="665,27,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.5,0.5" Foreground="#FFF8F8FA" Background="#FF313B8F" Click="btn_mis_publicaciones_Click"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="161,93,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
         <Label Content="Correo" HorizontalAlignment="Left" Margin="169,122,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>
         <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="104,152,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" Foreground="#FF483A8B" FontSize="14" FontWeight="Bold"/>

@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MisPublicaciones" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid HorizontalAlignment="Left" Height="100" Margin="142,233,0,0" VerticalAlignment="Top" Width="488"/>
+        <Label Content="Tu última publicacion:&#xD;&#xA;" HorizontalAlignment="Left" Margin="107,76,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="217" Margin="259,49,0,0" VerticalAlignment="Top" Width="227" Source="índice.jpg"/>
+        <Label Content="Visitas&#xA;" HorizontalAlignment="Left" Margin="524,62,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="579,67,0,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Width="30"/>
+        <Label Content="Favs&#xA;" HorizontalAlignment="Left" Margin="531,102,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="581,107,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="30" RenderTransformOrigin="-0.139,0.553"/>
+        <Label Content="Rosita, 19 meses&#xA;" HorizontalAlignment="Left" Margin="325,186,0,0" VerticalAlignment="Top"/>
+        <Label Content="CUANDO HAGAS OTRAS PUBLICACIONES, APARECERÁN ACÁ...." HorizontalAlignment="Left" Margin="209,274,0,0" VerticalAlignment="Top"/>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="666,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
     </Grid>
 </Window>

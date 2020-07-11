@@ -53,7 +53,7 @@ namespace Presentacion.Vistas
 
         private void Actualizar()
         {            
-            dtgPublicaciones.Items.Refresh();
+            //dtgPublicaciones.Items.Refresh();
         }
 
         private void btn_volver_Click(object sender, RoutedEventArgs e)
@@ -71,11 +71,21 @@ namespace Presentacion.Vistas
             cbbComuna.ItemsSource = conCom.listarComunaPorRegion(conReg.idRegion(id_region));
         }
 
-        private void btn_todo_Click(object sender, RoutedEventArgs e)
+      
+        private class Carga
+        {
+            public string Nombre { get; set; }
+            public string Tipo { get; set; }
+            public string Edad { get; set; }
+            public DateTime Fecha { get; set; }
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             var lista = conPub.GetAll();
             List<Carga> cargar = new List<Carga>();
             Con_Mascota cmas = new Con_Mascota();
+
             foreach (PUBLICACION pub in lista)
             {
                 MASCOTA info = cmas.macotaPorID(pub.MAS_ID_MASCOTA);
@@ -83,19 +93,29 @@ namespace Presentacion.Vistas
                 car.Nombre = pub.MAS_NOMBRE;
                 car.Tipo = info.MAS_TIPO;
                 car.Edad = info.MAS_EDAD.ToString();
+                car.Fecha = pub.PUB_FECHA;
                 cargar.Add(car);
-                
             }
-            
-            
-            dtgPublicaciones.ItemsSource = cargar;
+            //dtgPublicaciones.ItemsSource = cargar;
         }
 
-        private class Carga
+        private void cbbComuna_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            public string Nombre { get; set; }
-            public string Tipo { get; set; }
-            public string Edad { get; set; }
+            var lista = conPub.GetAll();
+            List<Carga> cargar = new List<Carga>();
+            Con_Mascota cmas = new Con_Mascota();
+
+            foreach (PUBLICACION pub in lista)
+            {
+                MASCOTA info = cmas.macotaPorID(pub.MAS_ID_MASCOTA);
+                Carga car = new Carga();
+                car.Nombre = pub.MAS_NOMBRE;
+                car.Tipo = info.MAS_TIPO;
+                car.Edad = info.MAS_EDAD.ToString();
+                car.Fecha = pub.PUB_FECHA;
+                cargar.Add(car);
+            }
+            //dtgPublicaciones.ItemsSource = cargar;
         }
     }
 }

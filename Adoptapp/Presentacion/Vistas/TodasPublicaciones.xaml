@@ -6,25 +6,22 @@
         xmlns:local="clr-namespace:Presentacion.Vistas"
         mc:Ignorable="d"
         Title="TodasPublicaciones" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="dtgPublicaciones" HorizontalAlignment="Left" Height="206" Margin="282,159,0,0" 
-                  VerticalAlignment="Top" Width="Auto" IsReadOnly="true" AutoGenerateColumns="False" ItemsSource="{Binding Source=list}">
-            <DataGrid.Columns>                
-                <DataGridTextColumn Header="NOMBRE" Width="Auto"  Binding="{Binding Nombre}"/>
-                <DataGridTextColumn Header="TIPO MASCOTA" Width="Auto"  Binding="{Binding Tipo}" />
-                <DataGridTextColumn Header="EDAD" Width="Auto"  Binding="{Binding Edad}" />
-            </DataGrid.Columns>
-        </DataGrid>
+    <Grid Loaded="Grid_Loaded">
 
 
 
-        <ComboBox x:Name="cbbComuna" HorizontalAlignment="Left" Text="Comuna"  Margin="216,90,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Margin="78,90,0,0" VerticalAlignment="Top" Width="120" Text="REGION" IsEditable="False" SelectionChanged="cbbRegion_SelectionChanged"/>
-        <ComboBox x:Name="cbbTipoMascota" HorizontalAlignment="Left" Margin="355,90,0,0" VerticalAlignment="Top" Width="120">
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="189" Margin="61,147,0,0" Stroke="Black" VerticalAlignment="Top" Width="612"/>
+
+
+
+        <ComboBox x:Name="cbbComuna" HorizontalAlignment="Left" Text="Comuna"  Margin="216,90,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbbComuna_SelectionChanged" SelectedIndex="5"/>
+        <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Margin="78,90,0,0" VerticalAlignment="Top" Width="120" Text="REGION" IsEditable="False" SelectionChanged="cbbRegion_SelectionChanged" SelectedIndex="3"/>
+        <ComboBox x:Name="cbbTipoMascota" HorizontalAlignment="Left" Margin="355,90,0,0" VerticalAlignment="Top" Width="120"  SelectedIndex="3">
             <ComboBoxItem Content="Gato" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Perro" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Todos" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="cbbEdad" HorizontalAlignment="Left" Margin="492,90,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="cbbEdad" HorizontalAlignment="Left" Margin="492,90,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="1">
             <ComboBoxItem Content="0-11" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="12-23" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="24-35" HorizontalAlignment="Left" Width="118"/>
@@ -35,7 +32,16 @@
         <Label Content="Edad en meses" HorizontalAlignment="Left" Margin="511,59,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_filtrar" Content="Filtrar" HorizontalAlignment="Left" Margin="639,90,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="btn_volver" Content="Volver" HorizontalAlignment="Left" Margin="689,389,0,0" VerticalAlignment="Top" Width="75" Click="btn_volver_Click"/>
-        <Button x:Name="btn_todo" Content="Ver todo" HorizontalAlignment="Left" Margin="348,34,0,0" VerticalAlignment="Top" Width="75" Click="btn_todo_Click"/>
+        <Button x:Name="btn_todo" Content="Ver todo" HorizontalAlignment="Left" Margin="348,34,0,0" VerticalAlignment="Top" Width="75"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="89,189,0,0" VerticalAlignment="Top" Width="100" Source="118384943-cute-orange-tabby-cat-sitting-up-tall-on-white-background.jpg"/>
+        <Label Content="Pepito, 5 meses" HorizontalAlignment="Left" Margin="94,292,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="225,187,0,0" VerticalAlignment="Top" Width="100" Source="iguana-de-mascota.jpg"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="364,189,0,0" VerticalAlignment="Top" Width="100" Source="como-educar-perro.jpg"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="515,192,0,0" VerticalAlignment="Top" Width="100" Source="images.jpg"/>
+        <Label Content="Más recientes..." HorizontalAlignment="Left" Margin="30,114,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fernandito, 7 años" HorizontalAlignment="Left" Margin="218,293,0,0" VerticalAlignment="Top"/>
+        <Label Content="Rodriga 12 dias" HorizontalAlignment="Left" Margin="368,295,0,0" VerticalAlignment="Top"/>
+        <Label Content="Carmela 3 años" HorizontalAlignment="Left" Margin="514,296,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

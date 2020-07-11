@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace BaseDatos.Controlador
 {
+    public class Pub_Mas
+    {
+        public int idPublicacion { get; set; } 
+        public int edadMascota { get; set; }
+        public string tipoMascota { get; set; }
+        public string nombreMascota { get; set; }
+        public DateTime fechaPublicacion { get; set; }
+        public string comuna { get; set; }
+    }
     public class Con_Publicacion
     {
         public void crearPublicacion(PUBLICACION pub)
@@ -40,6 +49,30 @@ namespace BaseDatos.Controlador
                     lista.Add(publicacion);
                 }
                 return lista;
+            }
+        }
+
+        public List<Pub_Mas> GetAllMix()
+        {
+
+            using (adoptappEntidad entidades = new adoptappEntidad())
+            {
+                var consulta = (
+                                from x in entidades.PUBLICACION
+                                join y in entidades.MASCOTA on x.MAS_ID_MASCOTA equals y.MAS_ID_MASCOTA
+                                join z in entidades.COMUNA on x.COM_NOMBRE_COMUNA equals z.COM_NOMBRE_COMUNA
+                                select new Pub_Mas
+                                {
+                                    idPublicacion = x.PUB_ID_PUBLICACION,
+                                    edadMascota = y.MAS_EDAD,
+                                    fechaPublicacion = x.PUB_FECHA,
+                                    nombreMascota = y.MAS_NOMBRE,
+                                    comuna = z.COM_NOMBRE_COMUNA,
+                                    tipoMascota = y.MAS_TIPO
+                                }
+                                ).ToList();
+
+                return consulta;
             }
         }
 

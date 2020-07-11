@@ -52,9 +52,15 @@ namespace Presentacion.Vistas
         private void btn_detalle_Click(object sender, RoutedEventArgs e)
         {
             DetalleCuenta ventana = new DetalleCuenta(usuario);
-            this.Close();
             ventana.ShowDialog();
             
+        }
+
+        private void btn_mis_publicaciones_Click(object sender, RoutedEventArgs e)
+        {
+            MisPublicaciones ventana = new MisPublicaciones();
+            ventana.ShowDialog();
+
         }
     }
 }

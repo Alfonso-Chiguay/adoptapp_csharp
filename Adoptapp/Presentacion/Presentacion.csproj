@@ -171,6 +171,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Vistas\1200px-Heart_corazón.svg.webp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -193,6 +194,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Vistas\61a03058fd104c10ec2a0b8e1ef33577.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\iguana-de-mascota.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\como-educar-perro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\índice.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
