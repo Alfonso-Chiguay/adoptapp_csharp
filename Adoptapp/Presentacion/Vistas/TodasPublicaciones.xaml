@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion.Vistas"
         mc:Ignorable="d"
-        Title="TodasPublicaciones" Height="450" Width="800">
+        Title="TodasPublicaciones" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Loaded="Grid_Loaded">
 
 
@@ -16,32 +16,40 @@
 
         <ComboBox x:Name="cbbComuna" HorizontalAlignment="Left" Text="Comuna"  Margin="216,90,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbbComuna_SelectionChanged" SelectedIndex="5"/>
         <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Margin="78,90,0,0" VerticalAlignment="Top" Width="120" Text="REGION" IsEditable="False" SelectionChanged="cbbRegion_SelectionChanged" SelectedIndex="3"/>
-        <ComboBox x:Name="cbbTipoMascota" HorizontalAlignment="Left" Margin="355,90,0,0" VerticalAlignment="Top" Width="120"  SelectedIndex="3">
+        <ComboBox x:Name="cbbTipoMascota" HorizontalAlignment="Left" Margin="355,90,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Gato" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Perro" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Todos" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="cbbEdad" HorizontalAlignment="Left" Margin="492,90,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="1">
+        <ComboBox x:Name="cbbEdad" HorizontalAlignment="Left" Margin="492,90,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbbEdad_SelectionChanged">
             <ComboBoxItem Content="0-11" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="12-23" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="24-35" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <Label Content="Region" HorizontalAlignment="Left" Margin="109,59,0,0" VerticalAlignment="Top"/>
-        <Label Content="Comuna" HorizontalAlignment="Left" Margin="244,59,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tipo" HorizontalAlignment="Left" Margin="387,59,0,0" VerticalAlignment="Top"/>
-        <Label Content="Edad en meses" HorizontalAlignment="Left" Margin="511,59,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_filtrar" Content="Filtrar" HorizontalAlignment="Left" Margin="639,90,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btn_volver" Content="Volver" HorizontalAlignment="Left" Margin="689,389,0,0" VerticalAlignment="Top" Width="75" Click="btn_volver_Click"/>
-        <Button x:Name="btn_todo" Content="Ver todo" HorizontalAlignment="Left" Margin="348,34,0,0" VerticalAlignment="Top" Width="75"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="89,189,0,0" VerticalAlignment="Top" Width="100" Source="118384943-cute-orange-tabby-cat-sitting-up-tall-on-white-background.jpg"/>
-        <Label Content="Pepito, 5 meses" HorizontalAlignment="Left" Margin="94,292,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="225,187,0,0" VerticalAlignment="Top" Width="100" Source="iguana-de-mascota.jpg"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="364,189,0,0" VerticalAlignment="Top" Width="100" Source="como-educar-perro.jpg"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="515,192,0,0" VerticalAlignment="Top" Width="100" Source="images.jpg"/>
-        <Label Content="Más recientes..." HorizontalAlignment="Left" Margin="30,114,0,0" VerticalAlignment="Top"/>
-        <Label Content="Fernandito, 7 años" HorizontalAlignment="Left" Margin="218,293,0,0" VerticalAlignment="Top"/>
-        <Label Content="Rodriga 12 dias" HorizontalAlignment="Left" Margin="368,295,0,0" VerticalAlignment="Top"/>
-        <Label Content="Carmela 3 años" HorizontalAlignment="Left" Margin="514,296,0,0" VerticalAlignment="Top"/>
+        <Label Content="Region" HorizontalAlignment="Left" Margin="109,59,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="14" Foreground="#FF5C3987"/>
+        <Label Content="Comuna" HorizontalAlignment="Left" Margin="244,59,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="14" Foreground="#FF5C3987"/>
+        <Label Content="Tipo" HorizontalAlignment="Left" Margin="387,59,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="14" Foreground="#FF5C3987"/>
+        <Label Content="Edad en meses" HorizontalAlignment="Left" Margin="502,59,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="14" Foreground="#FF5C3987"/>
+        <Button x:Name="btn_filtrar" Content="Filtrar" HorizontalAlignment="Left" Margin="639,90,0,0" VerticalAlignment="Top" Width="75" Background="#FF9439B6" Foreground="White"/>
+        <Button x:Name="btn_volver" Content="Volver" HorizontalAlignment="Left" Margin="689,389,0,0" VerticalAlignment="Top" Width="75" Click="btn_volver_Click" Foreground="White" Background="#FF781B67"/>
+        <Button x:Name="btn_todo" Content="Ver todo" HorizontalAlignment="Left" Margin="639,56,0,0" VerticalAlignment="Top" Width="75" Click="btn_todo_Click" Background="#FF951D43" Foreground="White"/>
+        <Image x:Name="im1" HorizontalAlignment="Left" Height="89" Margin="97,198,0,0" VerticalAlignment="Top" Width="89" Source="118384943-cute-orange-tabby-cat-sitting-up-tall-on-white-background.jpg" MouseLeftButtonDown="im1_MouseLeftButtonDown" Visibility="Hidden"/>
+        <Label x:Name="lb1" Content="Pepito, 5 meses" HorizontalAlignment="Left" Margin="94,292,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Image x:Name="im2" HorizontalAlignment="Left" Height="100" Margin="226,208,0,0" VerticalAlignment="Top" Width="100" Source="iguana-de-mascota.jpg" Visibility="Hidden">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="61a03058fd104c10ec2a0b8e1ef33577.jpg"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="im3" HorizontalAlignment="Left" Height="85" Margin="364,210,0,0" VerticalAlignment="Top" Width="96" Source="como-educar-perro.jpg" Visibility="Hidden"/>
+        <Image x:Name="im4" HorizontalAlignment="Left" Height="100" Margin="514,200,0,0" VerticalAlignment="Top" Width="100" Source="images.jpg" Visibility="Hidden"/>
+        <Label x:Name="lb2" Content="Fernandito, 7 años" HorizontalAlignment="Left" Margin="218,293,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="lb3" Content="Rodriga 12 dias" HorizontalAlignment="Left" Margin="368,295,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="lb4" Content="Carmela 3 años" HorizontalAlignment="Left" Margin="514,296,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic" Height="72" Width="86">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Presentacion;component/img/LOGO.png"/>
+            </Label.Background>
+        </Label>
 
     </Grid>
 </Window>

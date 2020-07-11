@@ -5,23 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion.Vistas"
         mc:Ignorable="d"
-        Title="MascotaViewer" Height="450" Width="800">
+        Title="MascotaViewer" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image HorizontalAlignment="Left" Height="199" Margin="79,79,0,0" VerticalAlignment="Top" Width="251" Source="118384943-cute-orange-tabby-cat-sitting-up-tall-on-white-background.jpg"/>
-        <Image HorizontalAlignment="Left" Height="73" Margin="82,304,0,0" VerticalAlignment="Top" Width="53" Source="61a03058fd104c10ec2a0b8e1ef33577.jpg" RenderTransformOrigin="0.849,0.942"/>
-        <Label Content="Nombre de la mascota" HorizontalAlignment="Left" Margin="353,90,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tipo:" HorizontalAlignment="Left" Margin="356,129,0,0" VerticalAlignment="Top"/>
-        <Label Content="Comuna" HorizontalAlignment="Left" Margin="357,163,0,0" VerticalAlignment="Top"/>
-        <Label Content="Fecha publicacion" HorizontalAlignment="Left" Margin="358,198,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nombre contacto" HorizontalAlignment="Left" Margin="358,232,0,0" VerticalAlignment="Top"/>
-        <Label Content="Descripcion" HorizontalAlignment="Left" Margin="362,269,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="82" Margin="449,274,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="255"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="497,236,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="498,202,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="497,163,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="491,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="497,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Usuario" HorizontalAlignment="Left" Margin="682,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nombre de la mascota" HorizontalAlignment="Left" Margin="335,77,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Foreground="#FF6E0B53" FontWeight="Bold"/>
+        <Label Content="Tipo" HorizontalAlignment="Left" Margin="335,107,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Foreground="#FF6E0B53" FontWeight="Bold"/>
+        <Label Content="Comuna" HorizontalAlignment="Left" Margin="335,133,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Foreground="#FF6E0B53" FontWeight="Bold"/>
+        <Label Content="Fecha publicacion" HorizontalAlignment="Left" Margin="335,163,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Foreground="#FF6E0B53" FontWeight="Bold"/>
+        <Label Content="Nombre contacto" HorizontalAlignment="Left" Margin="335,189,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" RenderTransformOrigin="0.288,0.033" Foreground="#FF6E0B53" FontWeight="Bold"/>
+        <Label Content="Descripcion" HorizontalAlignment="Left" Margin="335,224,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Foreground="#FF6E0B53" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="82" Margin="502,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Text="Un gatito muy regalon en busca de un&#xD;&#xA;hogar"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="502,194,0,0" TextWrapping="Wrap" Text="Claudio Bravo" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="502,166,0,0" TextWrapping="Wrap" Text="05/07/2020" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="502,138,0,0" TextWrapping="Wrap" Text="Maipu" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="502,110,0,0" TextWrapping="Wrap" Text="Gato" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="502,82,0,0" TextWrapping="Wrap" Text="Pepito" VerticalAlignment="Top" Width="120"/>
+        <Label Content="♥Lo tienes en favoritos" HorizontalAlignment="Left" Margin="588,19,0,0" VerticalAlignment="Top" FontFamily="Sitka Display" FontSize="16" Foreground="#FF6E0B53" FontWeight="Bold"/>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="644,361,0,0" VerticalAlignment="Top" Width="89" Background="#FF4C0A6A" Foreground="White" Height="30" Click="Button_Click"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic" Height="72" Width="86">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Presentacion;component/img/LOGO.png"/>
+            </Label.Background>
+        </Label>
 
     </Grid>
 </Window>

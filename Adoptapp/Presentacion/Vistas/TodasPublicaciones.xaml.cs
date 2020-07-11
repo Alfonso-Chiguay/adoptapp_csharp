@@ -117,5 +117,29 @@ namespace Presentacion.Vistas
             }
             //dtgPublicaciones.ItemsSource = cargar;
         }
+
+        private void cbbEdad_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btn_todo_Click(object sender, RoutedEventArgs e)
+        {
+            im1.Visibility = Visibility.Visible;
+            im2.Visibility = Visibility.Visible;
+            im3.Visibility = Visibility.Visible;
+            im4.Visibility = Visibility.Visible;
+            lb1.Visibility = Visibility.Visible;
+            lb2.Visibility = Visibility.Visible;
+            lb3.Visibility = Visibility.Visible;
+            lb4.Visibility = Visibility.Visible;
+        }
+
+        private void im1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MascotaViewer ventana = new MascotaViewer();
+            this.Close();
+            ventana.ShowDialog();
+        }
     }
 }

@@ -5,13 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion.Vistas"
         mc:Ignorable="d"
-        Title="AnunciosGuardados" Height="450" Width="800">
+        Title="AnunciosGuardados" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Anuncios guardados" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="30"/>
-        <Frame Content="" HorizontalAlignment="Left" Height="291" Margin="10,65,0,0" VerticalAlignment="Top" Width="772" BorderBrush="#FF670A7C" BorderThickness="2"/>
-        <ListBox x:Name="lbox_lista" HorizontalAlignment="Left" Height="286" Margin="13,68,0,0" VerticalAlignment="Top" Width="767" FontSize="25"/>
-        <Button Content="Detalle Usuario" HorizontalAlignment="Left" Margin="488,27,0,0" VerticalAlignment="Top" Width="92" Background="#FFAD266F" Foreground="White"/>
-        <Button Content="Favoritos" HorizontalAlignment="Left" Margin="585,27,0,0" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF5A3987"/>
-        <Button Content="Mis publicaciones" HorizontalAlignment="Left" Margin="665,27,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.573,0.55" Foreground="#FFF8F8FA" Background="#FF313B8F"/>
+        <Label Content="Anuncios guardados" HorizontalAlignment="Left" Margin="96,27,0,0" VerticalAlignment="Top" FontSize="30" Foreground="#FFA22C74" FontFamily="Sitka Heading"/>
+        <Button Content="Mis publicaciones" HorizontalAlignment="Left" Margin="665,27,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.573,0.55" Foreground="#FFF8F8FA" Background="#FF313B8F" Click="Button_Click"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="30,81,0,0" VerticalAlignment="Top"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="41,99,0,0" VerticalAlignment="Top" Height="110" Width="123">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="iguana-de-mascota.jpg"/>
+            </Label.Background>
+        </Label>
+        <Label Content="Fernandito, 7 años, una iguana muy amistosa" HorizontalAlignment="Left" Margin="180,141,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="41,214,0,0" VerticalAlignment="Top" Height="110" Width="123">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="118384943-cute-orange-tabby-cat-sitting-up-tall-on-white-background.jpg"/>
+            </Label.Background>
+        </Label>
+        <Label Content="Pepito, 5 meses, un gatito muy regalon en busca de un hogar" HorizontalAlignment="Left" Margin="180,245,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="41,207,0,0" Stroke="Black" VerticalAlignment="Top" Width="623" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Label Content="" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic" Height="72" Width="86">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Presentacion;component/img/LOGO.png"/>
+            </Label.Background>
+        </Label>
+        <Button x:Name="btn_volver" Content="Volver" HorizontalAlignment="Left" Margin="649,389,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.573,0.55" Foreground="#FFF8F8FA" Background="#FF313B8F" Click="btn_volver_Click"/>
     </Grid>
 </Window>

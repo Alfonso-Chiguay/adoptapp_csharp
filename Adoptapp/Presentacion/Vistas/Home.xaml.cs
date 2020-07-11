@@ -62,5 +62,11 @@ namespace Presentacion.Vistas
             ventana.ShowDialog();
 
         }
+
+        private void btn_favoritos_Click(object sender, RoutedEventArgs e)
+        {
+            AnunciosGuardados ventana = new AnunciosGuardados();
+            ventana.ShowDialog();
+        }
     }
 }

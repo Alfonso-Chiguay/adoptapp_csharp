@@ -23,5 +23,22 @@ namespace Presentacion.Vistas
         {
             InitializeComponent();
         }
+
+        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MisPublicaciones ventana = new MisPublicaciones();
+            this.Close();
+            ventana.ShowDialog();
+        }
+
+        private void btn_volver_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

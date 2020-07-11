@@ -5,18 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion.Vistas"
         mc:Ignorable="d"
-        Title="MisPublicaciones" Height="450" Width="800">
+        Title="MisPublicaciones" Height="401.566" Width="574.56" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="100" Margin="142,233,0,0" VerticalAlignment="Top" Width="488"/>
-        <Label Content="Tu última publicacion:&#xD;&#xA;" HorizontalAlignment="Left" Margin="107,76,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="217" Margin="259,49,0,0" VerticalAlignment="Top" Width="227" Source="índice.jpg"/>
-        <Label Content="Visitas&#xA;" HorizontalAlignment="Left" Margin="524,62,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="579,67,0,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Width="30"/>
-        <Label Content="Favs&#xA;" HorizontalAlignment="Left" Margin="531,102,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="581,107,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="30" RenderTransformOrigin="-0.139,0.553"/>
-        <Label Content="Rosita, 19 meses&#xA;" HorizontalAlignment="Left" Margin="325,186,0,0" VerticalAlignment="Top"/>
-        <Label Content="CUANDO HAGAS OTRAS PUBLICACIONES, APARECERÁN ACÁ...." HorizontalAlignment="Left" Margin="209,274,0,0" VerticalAlignment="Top"/>
-        <Button Content="Volver" HorizontalAlignment="Left" Margin="666,371,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <DataGrid HorizontalAlignment="Left" Height="100" Margin="31,226,0,0" VerticalAlignment="Top" Width="488"/>
+        <Label Content="Tu última publicacion:&#xD;&#xA;" HorizontalAlignment="Left" Margin="101,18,0,0" VerticalAlignment="Top" FontFamily="Sitka Heading" FontSize="20" Foreground="#FF992EAA"/>
+        <Image HorizontalAlignment="Left" Height="132" Margin="112,58,0,0" VerticalAlignment="Top" Width="227" Source="índice.jpg"/>
+        <Label Content="Visitas&#xA;" HorizontalAlignment="Left" Margin="452,16,0,0" VerticalAlignment="Top" Height="27" FontFamily="Sitka Display" FontSize="16" Background="{x:Null}" Foreground="#FF7A0A0A"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="509,18,0,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Width="30" IsEnabled="False"/>
+        <Label Content="Favoritos&#xA;" HorizontalAlignment="Left" Margin="436,55,0,0" VerticalAlignment="Top" Height="27" FontFamily="Sitka Display" FontSize="16" Background="{x:Null}" Foreground="#FF7A0A0A"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="509,59,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="30" RenderTransformOrigin="-0.139,0.553" IsEnabled="False"/>
+        <Label Content="Rosita, 12 meses, muy tranquila, un animal nocturno&#xA;" HorizontalAlignment="Left" Margin="101,195,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic"/>
+        <Label Content="CUANDO HAGAS OTRAS PUBLICACIONES, APARECERÁN ACÁ...." HorizontalAlignment="Left" Margin="85,262,0,0" VerticalAlignment="Top"/>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="464,341,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Background="#FF6D42A0" Foreground="White"/>
+        <Label Content="Descripcion:" HorizontalAlignment="Left" Margin="101,180,0,0" VerticalAlignment="Top" Height="27" FontFamily="Sitka Display" FontSize="16" Background="{x:Null}" Foreground="#FF7A0A0A"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic" Height="72" Width="86">
+            <Label.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Presentacion;component/img/LOGO.png"/>
+            </Label.Background>
+        </Label>
 
     </Grid>
 </Window>
